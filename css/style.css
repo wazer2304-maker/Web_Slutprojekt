@@ -19,6 +19,8 @@ IDn som används för sidoselektion via css:
 	--BASE_PURPLE: #976391;
 	--BASE_DARK_PURPLE: #712f79;
 	--BASE_GOLDEN_PEACH: #f7996e;
+	--BASE_BACKGROUND: rgb(250, 251, 253);
+	--BASE_BORDER: rgb(168, 168, 168);
 }
 
 .FONT-bungee-spice {
@@ -49,15 +51,94 @@ p {
 	font-size: 1em;
 }
 
-html,
 body {
-	height: 100%;
+	height: 99.42vh;
 }
 
 body {
+	background-color: var(--BASE_BACKGROUND);
 	padding: 0;
 	margin: 0;
 	color: var(--BASE_BLUE);
 	display: grid;
-	grid-template-rows: 50px 1fr 50px;
+	grid-template-rows: 10vh 1fr 10vh;
 }
+
+nav,
+footer {
+	height: 100%;
+	padding: 3px;
+}
+
+/*HEADERN FÖR ALLA SIDOR*/
+header {
+	border: 1px solid var(--BASE_BORDER);
+	margin-left: 14%;
+	margin-right: 14%;
+	border-radius: 0 0 42px 42px;
+	display: grid;
+	grid-template-columns: 1fr 6fr 10fr;
+	grid-template-areas: ". . . pos_nav";
+}
+
+header > #logo {
+	width: 11vh;
+	filter: grayscale(0.2);
+	border-radius: 100%;
+}
+
+header > h1 {
+	font-size: 2em;
+}
+
+header > nav {
+	justify-content: right;
+}
+
+header > nav > ul {
+	grid-area: pos_nav;
+	display: grid;
+	grid-template-columns: 3fr 3fr 3fr 1fr;
+}
+
+nav > ul > li {
+	list-style-type: none;
+	margin: 0 10px;
+}
+/*HEADER*/
+
+/*FOOTERN FÖR ALLA SIDOR    h3 p ul*/
+footer {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas: "copyright links" "subtext .";
+	background: rgb(255, 175, 175);
+}
+
+footer > * {
+	/*TOP-RIGHT-BOTTOM-LEFT*/
+	margin: 10px 100px 0 100px;
+}
+
+footer > h3 {
+	grid-area: copyright;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+footer > ul {
+	grid-area: links;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+footer > p {
+	grid-area: subtext;
+}
+
+footer > ul > li {
+	list-style-type: none;
+}
+
+/*FOOTER*/
