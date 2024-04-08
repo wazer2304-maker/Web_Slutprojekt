@@ -9,6 +9,7 @@ IDn som används för sidoselektion via css:
     page_spelare
     page_argentina
     page_ronaldo
+    (page_test)
 */
 
 :root {
@@ -18,4 +19,45 @@ IDn som används för sidoselektion via css:
 	--BASE_PURPLE: #976391;
 	--BASE_DARK_PURPLE: #712f79;
 	--BASE_GOLDEN_PEACH: #f7996e;
+}
+
+.FONT-bungee-spice {
+	font-family: "Bungee Spice", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.FONT-titillium-web,
+* {
+	/* '*' Sätter en standardfont. För att använda bungee-spice måste den prioriteras. Backup: sans-serif.  */
+	font-family: "Titillium Web", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/*Definierade em- fontstorlekar för h1->p. Lätt att ändra och precist. */
+h1 {
+	font-size: 1.5em;
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+h3,
+p {
+	font-size: 1em;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	color: var(--BASE_BLUE);
+	display: grid;
+	grid-template-rows: 50px 1fr 50px;
 }
