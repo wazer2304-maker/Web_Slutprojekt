@@ -73,6 +73,8 @@ footer {
 /*HEADERN FÖR ALLA SIDOR*/
 header {
 	border: 1px solid var(--BASE_BORDER);
+	border-top: none;
+	background: linear-gradient(white, var(--BASE_BACKGROUND));
 	margin-left: 14px;
 	margin-right: 14px;
 	border-radius: 0 0 42px 42px;
@@ -80,9 +82,9 @@ header {
 	grid-template-columns: 1fr 6fr 10fr;
 	grid-template-areas: ". . . pos_nav";
 
-	-webkit-box-shadow: 0px 4px 2px 1px rgba(148, 146, 148, 0.26);
-	-moz-box-shadow: 0px 4px 2px 1px rgba(148, 146, 148, 0.26);
-	box-shadow: 0px 4px 2px 1px rgba(148, 146, 148, 0.26);
+	-webkit-box-shadow: 0px 2px 2px 1px rgba(148, 146, 148, 0.26);
+	-moz-box-shadow: 0px 2px 2px 1px rgba(148, 146, 148, 0.26);
+	box-shadow: 0px 2px 2px 1px rgba(148, 146, 148, 0.26);
 }
 
 header > #logo {
