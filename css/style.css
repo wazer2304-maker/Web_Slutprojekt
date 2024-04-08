@@ -1,0 +1,21 @@
+/*
+IDn som används för sidoselektion via css:  
+    page_index
+    page_eliten
+    page_historia
+    page_form
+    page_ligor
+    page_lander
+    page_spelare
+    page_argentina
+    page_ronaldo
+*/
+
+:root {
+	/*Name-definierade egna färger via root. BASE används för att visa att färgen inte är som de andra. Används för att få konsistent användning utav utvalda färger. */
+	--BASE_BLUE: #48639c;
+	--BASE_DARK_BLUE: #4c4c9d;
+	--BASE_PURPLE: #976391;
+	--BASE_DARK_PURPLE: #712f79;
+	--BASE_GOLDEN_PEACH: #f7996e;
+}
