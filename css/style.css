@@ -61,7 +61,7 @@ body {
 	margin: 0;
 	color: var(--BASE_BLUE);
 	display: grid;
-	grid-template-rows: 10vh 1fr 10vh;
+	grid-template-rows: 100px 1fr 100px;
 }
 
 nav,
@@ -73,12 +73,16 @@ footer {
 /*HEADERN FÖR ALLA SIDOR*/
 header {
 	border: 1px solid var(--BASE_BORDER);
-	margin-left: 14%;
-	margin-right: 14%;
+	margin-left: 14px;
+	margin-right: 14px;
 	border-radius: 0 0 42px 42px;
 	display: grid;
 	grid-template-columns: 1fr 6fr 10fr;
 	grid-template-areas: ". . . pos_nav";
+
+	-webkit-box-shadow: 0px 4px 2px 1px rgba(148, 146, 148, 0.26);
+	-moz-box-shadow: 0px 4px 2px 1px rgba(148, 146, 148, 0.26);
+	box-shadow: 0px 4px 2px 1px rgba(148, 146, 148, 0.26);
 }
 
 header > #logo {
@@ -109,22 +113,31 @@ nav > ul > li {
 
 /*FOOTERN FÖR ALLA SIDOR    h3 p ul*/
 footer {
+	color: black;
 	display: grid;
-	grid-template-columns: 3fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-	grid-template-areas: "copyright links" "subtext .";
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "copyright links";
 	background: rgb(255, 175, 175);
 }
 
-footer > * {
-	/*TOP-RIGHT-BOTTOM-LEFT*/
-	margin: 10px 100px 0 100px;
+footer > h3 {
+	margin-left: 40px;
+	margin-top: 15px;
+	word-break: keep-all;
+	grid-area: copyright;
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
 }
 
-footer > h3 {
-	grid-area: copyright;
-	font-size: 1em;
-	font-weight: bold;
+@media (min-width: 768px) {
+	footer > h3 {
+		text-align: left;
+	}
+	footer {
+		grid-template-columns: 3fr 1fr;
+		grid-template-areas: "copyright links" ". .";
+	}
 }
 
 footer > ul {
@@ -133,12 +146,13 @@ footer > ul {
 	grid-template-columns: 1fr 1fr 1fr;
 }
 
-footer > p {
-	grid-area: subtext;
-}
-
 footer > ul > li {
 	list-style-type: none;
+}
+
+li > svg {
+	width: 50px;
+	height: 50px;
 }
 
 /*FOOTER*/
