@@ -183,17 +183,15 @@ footer li:hover {
 
 /*Enkel Allokering utav utrymme för innehåll*/
 #ContentContainer {
-	background: pink;
 	display: flex;
-	flex-direction: column;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
 section {
-	width: 40%;
-	align-self: auto;
+	width: 200px;
 	height: 100px;
 	margin: 0;
 	padding: 0;
-	background: radial-gradient(white, black);
+	background: radial-gradient(white, rgb(150, 208, 255));
 }
