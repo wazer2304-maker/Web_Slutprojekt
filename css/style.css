@@ -14,12 +14,13 @@ IDn som används för sidoselektion via css:
 
 :root {
 	/*Name-definierade egna färger via root. BASE används för att visa att färgen inte är som de andra. Används för att få konsistent användning utav utvalda färger. */
-	--BASE_BLUE: #48639c;
+	--BASE_LIGHT_BLUE: #f5f7ff;
+	--BASE_BLUE: #506ba5;
 	--BASE_DARK_BLUE: #4c4c9d;
 	--BASE_PURPLE: #976391;
 	--BASE_DARK_PURPLE: #712f79;
 	--BASE_GOLDEN_PEACH: #f7996e;
-	--BASE_BACKGROUND: rgb(250, 251, 253);
+	--BASE_BACKGROUND: rgb(246, 249, 255);
 	--BASE_BORDER: rgb(168, 168, 168);
 }
 
@@ -64,7 +65,7 @@ body {
 	grid-template-rows: 100px 1fr 100px;
 }
 
-nav,
+nav, /*Tar upp hela sin allokerade höjd, lite padding så det ser bättre ut*/
 footer {
 	height: 100%;
 	padding: 3px;
@@ -72,25 +73,22 @@ footer {
 
 /*HEADERN FÖR ALLA SIDOR*/
 header {
-	border: 1px solid var(--BASE_BORDER);
 	border-top: none;
-	background: linear-gradient(white, var(--BASE_BACKGROUND));
-	margin-left: 14px;
-	margin-right: 14px;
-	border-radius: 0 0 42px 42px;
+	margin-left: 10px;
+	margin-right: 10px;
+	background: var(--BASE_LIGHT_BLUE);
+	border-radius: 0 0 22px 22px;
 	display: grid;
-	grid-template-columns: 1fr 6fr 10fr;
+	grid-template-columns: 1fr 1fr 10fr;
 	grid-template-areas: ". . . pos_nav";
-
-	-webkit-box-shadow: 0px 2px 2px 1px rgba(148, 146, 148, 0.26);
-	-moz-box-shadow: 0px 2px 2px 1px rgba(148, 146, 148, 0.26);
-	box-shadow: 0px 2px 2px 1px rgba(148, 146, 148, 0.26);
+	box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
 header > #logo {
-	width: 11vh;
+	margin-left: 3vw;
+	width: 20vw;
+	height: 10vh;
 	filter: grayscale(0.2);
-	border-radius: 100%;
 }
 
 header > h1 {
@@ -107,34 +105,50 @@ header > nav > ul {
 	grid-template-columns: 3fr 3fr 3fr 1fr;
 }
 
-nav > ul > li {
+header > nav > ul > li {
+	font-size: 1.4em;
+	border: 1px solid rgb(230, 230, 230);
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	border-radius: 4px;
 	list-style-type: none;
-	margin: 0 10px;
+	background: var(--BASE_BACKGROUND);
+	padding: 0.5vh;
+	height: fit-content;
+	text-align: center; /*Horizontellt centrerar texten*/
 }
+
+header > nav > ul > li > a {
+	line-height: 3vw; /*Line-height på samma höjd som höjden av dess container centrerar. */
+	text-decoration: none;
+	color: var(--BASE_BLUE);
+}
+
 /*HEADER*/
 
 /*FOOTERN FÖR ALLA SIDOR    h3 p ul*/
 footer {
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 	color: black;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-areas: "copyright links";
-	background: rgb(255, 175, 175);
+	background: var(--BASE_LIGHT_BLUE);
 }
 
 footer > h3 {
-	margin-left: 40px;
-	margin-top: 15px;
-	word-break: keep-all;
 	grid-area: copyright;
-	font-size: 2em;
+	font-size: 1.8em;
 	font-weight: bold;
 	text-align: center;
 }
 
 @media (min-width: 768px) {
+	/*Kollapsar footerns innehåll och trycker ihop det på ett snyggt sätt*/
 	footer > h3 {
 		text-align: left;
+		margin-left: 0;
+		margin-left: 40px;
 	}
 	footer {
 		grid-template-columns: 3fr 1fr;
@@ -152,9 +166,18 @@ footer > ul > li {
 	list-style-type: none;
 }
 
-li > svg {
-	width: 50px;
-	height: 50px;
+footer li {
+	width: 3em;
+	height: 3em;
+	border-radius: 100%;
+	background: transparent;
+	box-shadow: rgba(50, 50, 50, 0.5) 4px 4px 13px;
+}
+
+footer li:hover {
+	box-shadow: rgba(50, 50, 50, 0.7) 1px 3px 2px;
+	transform: scale(1.1);
+	transition: 0.5s;
 }
 
 /*FOOTER*/
