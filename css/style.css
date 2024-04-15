@@ -179,5 +179,21 @@ footer li:hover {
 	transform: scale(1.1);
 	transition: 0.5s;
 }
-
 /*FOOTER*/
+
+/*Enkel Allokering utav utrymme för innehåll*/
+#ContentContainer {
+	background: pink;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+section {
+	width: 40%;
+	align-self: auto;
+	height: 100px;
+	margin: 0;
+	padding: 0;
+	background: radial-gradient(white, black);
+}
