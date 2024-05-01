@@ -14,13 +14,9 @@ IDn som används för sidoselektion via css:
 
 :root {
 	/*Name-definierade egna färger via root. BASE används för att visa att färgen inte är som de andra. Används för att få konsistent användning utav utvalda färger. */
-	--BASE_LIGHT_BLUE: #f5f7ff;
+	--BASE_LIGHT: #f9f9f9;
 	--BASE_BLUE: #506ba5;
-	--BASE_DARK_BLUE: #4c4c9d;
-	--BASE_PURPLE: #976391;
-	--BASE_DARK_PURPLE: #712f79;
-	--BASE_GOLDEN_PEACH: #f7996e;
-	--BASE_BACKGROUND: rgb(246, 249, 255);
+	--BASE_BACKGROUND: rgb(228, 232, 233);
 	--BASE_BORDER: rgb(168, 168, 168);
 }
 
@@ -53,19 +49,25 @@ body {
 /*HEADERN FÖR ALLA SIDOR*/
 header {
 	display: grid;
-	background: var(--BASE_LIGHT_BLUE);
-	border-radius: 0 0 22px 22px;
-	padding-left: 2vw;
-	height: 125px;
+	background: var(--BASE_LIGHT);
+	border-radius: 0 0 15px 15px;
+	padding-left: 3vw;
+	width: 100vw;
 	box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+	-webkit-border-radius: 0 0 15px 15px;
+	-moz-border-radius: 0 0 15px 15px;
+	-ms-border-radius: 0 0 15px 15px;
+	-o-border-radius: 0 0 15px 15px;
 }
 
 header ul {
 	display: flex;
 	flex-wrap: wrap;
 	list-style-type: none;
+	justify-content: center;
 	margin: 0;
 	padding: 0;
+	column-gap: 10vw;
 }
 
 header h1 {
@@ -73,6 +75,8 @@ header h1 {
 	width: fit-content;
 	text-align: center;
 	font-size: 3em;
+	line-height: 1em;
+	padding: 2px;
 	font-weight: bold;
 	text-align: right;
 	color: var(--BASE_BLUE);
@@ -80,28 +84,31 @@ header h1 {
 }
 
 
-
-
 header nav ul {
-	width: 80vw;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
+	column-gap: 20px;
 }
 
 header nav ul li {
 	width: 5em;
-	border: 1px solid var(--BASE_BORDER);
+	height: 3em;
+	line-height: 3em;
+	border: 1px solid rgb(210,220,220);
+	border-bottom: 0;
+	border-radius: 5px;
 	font-size: 1.6em;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-	border-radius: 4px;
 	list-style-type: none;
-	background: var(--BASE_BACKGROUND);
 	text-align: center;
-	 /*Horizontellt centrerar texten*/
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
+
 header nav ul li a {
-	line-height: 3vw; /*Line-height på samma höjd som höjden av dess container centrerar. */
 	text-decoration: none;
 	color: var(--BASE_BLUE);
 }
@@ -117,7 +124,7 @@ footer {
 	grid-template-areas: "copyright links";
 	grid-template-columns: 1fr 1fr 20px;
 	width: 100vw;
-	background: var(--BASE_LIGHT_BLUE);
+	background: var(--BASE_LIGHT);
 	padding: 2px;
 }
 
@@ -169,6 +176,9 @@ footer li:hover {
 
 /*Enkel Allokering utav utrymme för innehåll*/
 #ContentContainer {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	gap: 10px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -177,5 +187,5 @@ footer li:hover {
 section {
 	width: 600px;
 	height: 800px;
-	background: radial-gradient(white, rgb(0, 0, 0));
+	background-color: var(--BASE_LIGHT);
 }
