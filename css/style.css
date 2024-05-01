@@ -46,52 +46,56 @@ body {
 	margin: 0;
 	color: var(--BASE_BLUE);
 	display: grid;
+	overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 
 /*HEADERN FÖR ALLA SIDOR*/
 header {
-	height: fit-content;
+	display: grid;
 	background: var(--BASE_LIGHT_BLUE);
 	border-radius: 0 0 22px 22px;
+	padding-left: 2vw;
+	height: 125px;
 	box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
 header ul {
-	justify-content: center;
-	width: 95vw;
 	display: flex;
 	flex-wrap: wrap;
 	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 header h1 {
+	border-bottom: 1px solid var(--BASE_BLUE);
+	width: fit-content;
 	text-align: center;
-	margin-top: 0;
 	font-size: 3em;
 	font-weight: bold;
 	text-align: right;
 	color: var(--BASE_BLUE);
+	justify-content: right;
 }
 
 
 
 
 header nav ul {
-	width: 50vw;
+	width: 80vw;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 header nav ul li {
-	width: 10em;
-	font-size: 1.4em;
-	border: 1px solid rgb(230, 230, 230);
+	width: 5em;
+	border: 1px solid var(--BASE_BORDER);
+	font-size: 1.6em;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 	border-radius: 4px;
 	list-style-type: none;
 	background: var(--BASE_BACKGROUND);
-	padding: 0.5vw;
 	text-align: center;
 	 /*Horizontellt centrerar texten*/
 }
@@ -111,9 +115,10 @@ footer {
 	color: black;
 	display: grid;
 	grid-template-areas: "copyright links";
+	grid-template-columns: 1fr 1fr 20px;
+	width: 100vw;
 	background: var(--BASE_LIGHT_BLUE);
-	grid-template-columns: 100px auto;
-	height: fit-content;
+	padding: 2px;
 }
 
 footer > h3 {
@@ -137,10 +142,11 @@ footer > h3 {
 }
 
 footer > ul {
-	width: 35vw;
 	justify-content: right;
 	display: flex;
 	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
 }
 
 footer > ul > li {
@@ -169,7 +175,7 @@ footer li:hover {
 }
 
 section {
-	width: 400px;
-	height: 500px;
+	width: 600px;
+	height: 800px;
 	background: radial-gradient(white, rgb(0, 0, 0));
 }
