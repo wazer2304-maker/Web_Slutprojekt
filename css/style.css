@@ -38,86 +38,65 @@ IDn som används för sidoselektion via css:
 	font-style: normal;
 }
 
-/*Definierade em- fontstorlekar för h1->p. Lätt att ändra och precist. */
-h1 {
-	font-size: 1.5em;
-}
-
-h2 {
-	font-size: 1.2em;
-}
-
-h3,
-p {
-	font-size: 1em;
-}
-
-body {
-	height: 99.42vh;
-}
 
 body {
 	background-color: var(--BASE_BACKGROUND);
+	height: 100vh;
 	padding: 0;
 	margin: 0;
 	color: var(--BASE_BLUE);
 	display: grid;
-	grid-template-rows: 100px 1fr 100px;
 }
 
-nav, /*Tar upp hela sin allokerade höjd, lite padding så det ser bättre ut*/
-footer {
-	height: 100%;
-	padding: 3px;
-}
 
 /*HEADERN FÖR ALLA SIDOR*/
 header {
-	border-top: none;
-	margin-left: 10px;
-	margin-right: 10px;
+	height: fit-content;
 	background: var(--BASE_LIGHT_BLUE);
 	border-radius: 0 0 22px 22px;
-	display: grid;
-	grid-template-columns: 1fr 1fr 10fr;
-	grid-template-areas: ". . . pos_nav";
 	box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
-header > #logo {
-	margin-left: 3vw;
-	width: 20vw;
-	height: 10vh;
-	filter: grayscale(0.2);
+header ul {
+	justify-content: center;
+	width: 95vw;
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
 }
 
-header > h1 {
-	font-size: 2em;
+header h1 {
+	text-align: center;
+	margin-top: 0;
+	font-size: 3em;
+	font-weight: bold;
+	text-align: right;
+	color: var(--BASE_BLUE);
 }
 
-header > nav {
-	justify-content: right;
+
+
+
+header nav ul {
+	width: 50vw;
+	display: flex;
+	flex-wrap: wrap;
 }
 
-header > nav > ul {
-	grid-area: pos_nav;
-	display: grid;
-	grid-template-columns: 3fr 3fr 3fr 1fr;
-}
-
-header > nav > ul > li {
+header nav ul li {
+	width: 10em;
 	font-size: 1.4em;
 	border: 1px solid rgb(230, 230, 230);
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 	border-radius: 4px;
 	list-style-type: none;
 	background: var(--BASE_BACKGROUND);
-	padding: 0.5vh;
-	height: fit-content;
-	text-align: center; /*Horizontellt centrerar texten*/
+	padding: 0.5vw;
+	text-align: center;
+	 /*Horizontellt centrerar texten*/
 }
 
-header > nav > ul > li > a {
+header nav ul li a {
 	line-height: 3vw; /*Line-height på samma höjd som höjden av dess container centrerar. */
 	text-decoration: none;
 	color: var(--BASE_BLUE);
@@ -131,12 +110,14 @@ footer {
 		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 	color: black;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
 	grid-template-areas: "copyright links";
 	background: var(--BASE_LIGHT_BLUE);
+	grid-template-columns: 100px auto;
+	height: fit-content;
 }
 
 footer > h3 {
+	text-align: center;
 	grid-area: copyright;
 	font-size: 1.8em;
 	font-weight: bold;
@@ -151,27 +132,26 @@ footer > h3 {
 		margin-left: 40px;
 	}
 	footer {
-		grid-template-columns: 3fr 1fr;
 		grid-template-areas: "copyright links" ". .";
 	}
 }
 
 footer > ul {
-	grid-area: links;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	width: 35vw;
+	justify-content: right;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 footer > ul > li {
 	list-style-type: none;
+	margin: 1vw;
 }
 
 footer li {
 	width: 3em;
 	height: 3em;
 	border-radius: 100%;
-	background: transparent;
-	box-shadow: rgba(50, 50, 50, 0.5) 4px 4px 13px;
 }
 
 footer li:hover {
@@ -189,9 +169,7 @@ footer li:hover {
 }
 
 section {
-	width: 200px;
-	height: 100px;
-	margin: 0;
-	padding: 0;
-	background: radial-gradient(white, rgb(150, 208, 255));
+	width: 400px;
+	height: 500px;
+	background: radial-gradient(white, rgb(0, 0, 0));
 }
