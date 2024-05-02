@@ -12,13 +12,6 @@ IDn som används för sidoselektion via css:
     (page_test)
 */
 
-:root {
-	/*Name-definierade egna färger via root. BASE används för att visa att färgen inte är som de andra. Används för att få konsistent användning utav utvalda färger. */
-	--BASE_LIGHT: #f9f9f9;
-	--BASE_BLUE: #506ba5;
-	--BASE_BACKGROUND: rgb(228, 232, 233);
-	--BASE_BORDER: rgb(168, 168, 168);
-}
 
 .FONT-bungee-spice {
 	font-family: "Bungee Spice", sans-serif;
@@ -27,7 +20,7 @@ IDn som används för sidoselektion via css:
 }
 
 .FONT-titillium-web,
-* {
+body {
 	/* '*' Sätter en standardfont. För att använda bungee-spice måste den prioriteras. Backup: sans-serif.  */
 	font-family: "Titillium Web", sans-serif;
 	font-weight: 400;
@@ -36,28 +29,32 @@ IDn som används för sidoselektion via css:
 
 
 body {
-	background-color: var(--BASE_BACKGROUND);
+	background-color: rgb(228, 232, 233);
 	height: 100vh;
 	padding: 0;
 	margin: 0;
-	color: var(--BASE_BLUE);
+	color: #506ba5;
 	display: grid;
 	overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+h1 a{
+	text-decoration: none;
+	color: #506ba5;
+
 }
 
 
 /*HEADERN FÖR ALLA SIDOR*/
 header {
 	display: grid;
-	background: var(--BASE_LIGHT);
-	border-radius: 0 0 15px 15px;
-	padding-left: 3vw;
-	width: 100vw;
-	box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+	background: #f9f9f9;
+	box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em, rgba(90, 125, 188, 0.05) 0 0.25em 1em;
 	-webkit-border-radius: 0 0 15px 15px;
 	-moz-border-radius: 0 0 15px 15px;
 	-ms-border-radius: 0 0 15px 15px;
 	-o-border-radius: 0 0 15px 15px;
+	border-radius: 0 0 15px 15px;
 }
 
 header ul {
@@ -71,16 +68,14 @@ header ul {
 }
 
 header h1 {
-	border-bottom: 1px solid var(--BASE_BLUE);
+	border-bottom: 1px solid #506ba5;
 	width: fit-content;
-	text-align: center;
 	font-size: 3em;
 	line-height: 1em;
 	padding: 2px;
 	font-weight: bold;
 	text-align: right;
-	color: var(--BASE_BLUE);
-	justify-content: right;
+	color: #506ba5;
 }
 
 
@@ -91,13 +86,12 @@ header nav ul {
 	column-gap: 20px;
 }
 
-header nav ul li {
+header nav li {
 	width: 5em;
 	height: 3em;
 	line-height: 3em;
 	border: 1px solid rgb(210,220,220);
 	border-bottom: 0;
-	border-radius: 5px;
 	font-size: 1.6em;
 	list-style-type: none;
 	text-align: center;
@@ -105,50 +99,55 @@ header nav ul li {
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+header nav li:hover {
+	animation: navHover 1s;
+	-webkit-animation: navHover 1s;
+	box-shadow: 6px 0;
 }
 
 
-header nav ul li a {
+@keyframes navHover {
+	0% {
+		box-shadow: 0 0;
+}
+	100% {
+		box-shadow: 6px 0;
+}
+
+}
+
+header nav li a {
 	text-decoration: none;
-	color: var(--BASE_BLUE);
+	color: #506ba5;
 }
 
 /*HEADER*/
 
 /*FOOTERN FÖR ALLA SIDOR    h3 p ul*/
 footer {
-	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-		rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+	box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px,
+		rgba(10, 37, 64, 0.35) 0 -2px 6px 0 inset;
 	color: black;
 	display: grid;
-	grid-template-areas: "copyright links";
-	grid-template-columns: 1fr 1fr 20px;
+	grid-template-areas: ". copyright social .";
+	grid-template-columns: 40px auto auto 40px;
 	width: 100vw;
-	background: var(--BASE_LIGHT);
+	background: #f9f9f9;
 	padding: 2px;
 }
 
-footer > h3 {
-	text-align: center;
+footer h3 {
 	grid-area: copyright;
 	font-size: 1.8em;
 	font-weight: bold;
-	text-align: center;
-}
-
-@media (min-width: 768px) {
-	/*Kollapsar footerns innehåll och trycker ihop det på ett snyggt sätt*/
-	footer > h3 {
-		text-align: left;
-		margin-left: 0;
-		margin-left: 40px;
-	}
-	footer {
-		grid-template-areas: "copyright links" ". .";
-	}
+	text-align: left;
 }
 
 footer > ul {
+	grid-area: social;
 	justify-content: right;
 	display: flex;
 	flex-wrap: wrap;
@@ -176,6 +175,7 @@ footer li:hover {
 
 /*Enkel Allokering utav utrymme för innehåll*/
 #ContentContainer {
+	width: 100vw;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	gap: 10px;
@@ -187,5 +187,5 @@ footer li:hover {
 section {
 	width: 600px;
 	height: 800px;
-	background-color: var(--BASE_LIGHT);
+	background-color: #f9f9f9;
 }
