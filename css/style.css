@@ -155,7 +155,7 @@ footer li:hover {
 /*FOOTER*/
 
 /*Enkel Allokering utav utrymme för innehåll*/
-#ContentContainer {
+#ContentContainer { /*Id, en ContentContainer per sida*/
 	width: 100vw;
 	margin-top: 30px;
 	margin-bottom: 30px;
@@ -249,13 +249,45 @@ section p {
 	font-size: 1.2em;
 }
 
+.banner_section {
+	width: 100%;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto 1fr 1fr;
+	justify-content: center;
+}
+
+.banner_section img {
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	height: 300px;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+}
+
 .form_section {
+	width: 60vw;
+	border-left: 10px solid #475e8f;
 	background: linear-gradient(rgb(255, 255, 255), rgb(228, 232, 233));
-	border-radius: 10px 10px 100px 100px;
-	-webkit-border-radius: 10px 10px 100px 100px;
-	-moz-border-radius: 10px 10px 100px 100px;
-	-ms-border-radius: 10px 10px 100px 100px;
-	-o-border-radius: 10px 10px 100px 100px;
+	border-radius: 10px 10px 100px 10px;
+	-webkit-border-radius: 10px 10px 100px 10px;
+	-moz-border-radius: 10px 10px 100px 10px;
+	-ms-border-radius: 10px 10px 100px 10px;
+	-o-border-radius: 10px 10px 100px 10px;
+}
+
+@media (max-width: 800px) {
+	.form_section {
+		width: 90%;
+		border: none;
+	}
 }
 
 .form_section h2 {
@@ -294,7 +326,7 @@ section p {
 	min-width: 100px;
 	height: 10vh;
 	border: none;
-	background: radial-gradient(rgb(45, 45, 45), rgb(45, 45, 45),rgb(47, 47, 47));
+	background: #475e8f;
 	color: white;
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
