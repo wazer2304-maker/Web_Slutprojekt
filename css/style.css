@@ -185,6 +185,11 @@ section {/*En sektion,"mini-innehållare"*/
 	-o-border-radius: 4px;
 }
 
+section p {
+	font-size: 1.4em;
+
+}
+
 .img_split { /*En sektion, "mini-innehållare" med 50% för bild.  */
 	display: grid;
 	grid-template-rows: auto auto 1fr;
