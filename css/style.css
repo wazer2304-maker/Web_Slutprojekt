@@ -89,7 +89,7 @@ header nav li {
 
 header nav li:hover { /*Header-länkarna får en blå högersida som smyger fram över 1 sek. */
 	box-shadow: 3px 0;
-	transition-duration: 1s;
+	transition-duration: 0.2s;
 }
 
 @media (max-width: 800px) {
@@ -174,7 +174,8 @@ footer li:hover {
 section {/*En sektion,"mini-innehållare"*/
 	padding: 10px;
 	width: 500px;
-	height: 800px;
+	height: fit-content;
+	min-height: 800px;
 	background-color: #f9f9f9;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -200,6 +201,16 @@ section {/*En sektion,"mini-innehållare"*/
 
 .wide_section {
 	width: 80%;
+	padding: 30px;
+	padding-top: 10px;
+}
+
+.wide_section h2 {
+	font-size: 2em;
+}
+
+.wide_section p {
+	font-size: 1.2em;
 }
 
 section img {
