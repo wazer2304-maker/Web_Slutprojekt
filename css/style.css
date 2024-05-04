@@ -74,6 +74,7 @@ header nav ul {
 header nav li {
 	width: 5em;
 	height: 3em;
+	margin-bottom: 5px;
 	line-height: 3em;
 	border: 1px solid rgb(210,220,220);
 	border-bottom: 0;
@@ -207,6 +208,7 @@ section {/*En sektion,"mini-innehållare"*/
 
 .top_img_split img {
 	width: 200px;
+	height: 120px;
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -243,7 +245,6 @@ section {/*En sektion,"mini-innehållare"*/
 	flex-wrap: wrap;
 	justify-content: left;
 	grid-column: span 2;
-
 }
 
 .wide_section {
@@ -328,4 +329,12 @@ section img {
 
 p.bigger {
 	font-size: 1.6em;
+}
+
+iframe {
+	width: 100%;
+	height: fit-content;
+	min-height: 300px;
+	border: none;
+	grid-column: span 2;
 }
