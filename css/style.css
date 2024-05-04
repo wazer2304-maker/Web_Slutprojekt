@@ -1,10 +1,3 @@
-.FONT-bungee-spice {
-	font-family: "Bungee Spice", sans-serif;
-	font-weight: 400;
-	font-style: normal;
-}
-
-.FONT-titillium-web,
 body {
 	/* '*' Sätter en standardfont. För att använda bungee-spice måste den prioriteras. Backup: sans-serif.  */
 	font-family: "Titillium Web", sans-serif;
@@ -188,16 +181,6 @@ section {/*En sektion,"mini-innehållare"*/
 section p {
 	font-size: 1.4em;
 
-}
-
-.img_split { /*En sektion, "mini-innehållare" med 50% för bild.  */
-	display: grid;
-	grid-template-rows: auto auto 1fr;
-}
-
-.side_split { /*För sektioner, delad 50% på mitten.   */
-	display: grid;
-	grid-template-columns: 1fr 1fr;
 }
 
 .top_img_split { /*För sektioner, delar upp vertikalt 1:4 för topp-bilder på sektionen*/
