@@ -172,6 +172,7 @@ footer li:hover {
 }
 
 section {/*En sektion,"mini-innehållare"*/
+
 	padding: 10px;
 	width: 500px;
 	height: fit-content;
@@ -186,7 +187,7 @@ section {/*En sektion,"mini-innehållare"*/
 
 .img_split { /*En sektion, "mini-innehållare" med 50% för bild.  */
 	display: grid;
-	grid-template-rows: 2fr 3fr;
+	grid-template-rows: auto auto 1fr;
 }
 
 .side_split { /*För sektioner, delad 50% på mitten.   */
