@@ -301,7 +301,8 @@ section {/*En sektion,"mini-innehållare"*/
 .inner_form button {
 	font-size: 1.3em;
 	margin-top: 50px;
-	width: 60vw;
+	width: 40vw;
+	margin-left: 10vw;
 	min-width: 100px;
 	height: 10vh;
 	border: none;
@@ -337,4 +338,41 @@ iframe {
 	min-height: 300px;
 	border: none;
 	grid-column: span 2;
+}
+
+#spelare_img {
+	width: 90%;
+	height: fit-content;
+	object-fit: cover;
+	grid-column: span 2;
+}
+
+.textbox {
+	grid-column: span 2;
+}
+
+#mål {
+	width: 100%;
+	height: 100%;
+}
+#mål td, #mål th {
+	border: 1px solid #475e8f;
+	padding: 10px;
+}
+
+#mål tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+#mål tr:nth-child(odd) {
+	background-color: #e5e5e5;
+}
+
+#mål tr:hover {
+	background-color: #d5d5d5;
+}
+
+#mål th {
+	background-color: #475e8f;
+	color: white;
 }
