@@ -18,14 +18,14 @@ body {
 	height: 100vh;
 	padding: 0;
 	margin: 0;
-	color: #506ba5;
+	color: #475e8f;
 	display: grid;
 	overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 h1 a{
 	text-decoration: none;
-	color: #506ba5;
+	color: #475e8f;
 
 }
 
@@ -53,14 +53,14 @@ header ul {
 }
 
 header h1 {
-	border-bottom: 1px solid #506ba5;
+	border-bottom: 1px solid #475e8f;
 	width: fit-content;
 	font-size: 3em;
 	line-height: 1em;
 	padding: 2px;
 	font-weight: bold;
 	text-align: right;
-	color: #506ba5;
+	color: #475e8f;
 }
 
 
@@ -106,7 +106,7 @@ header nav li:hover { /*Header-länkarna får en blå högersida som smyger fram
 
 header nav li a { /*Ändrar färg & tar bort underline för länkarna*/
 	text-decoration: none;
-	color: #506ba5;
+	color: #475e8f;
 }
 
 /*HEADER*/
@@ -213,6 +213,59 @@ section {/*En sektion,"mini-innehållare"*/
 	font-size: 1.2em;
 }
 
+.form_section {
+	background: linear-gradient(rgb(255, 255, 255), rgb(228, 232, 233));
+	border-radius: 10px 10px 100px 100px;
+	-webkit-border-radius: 10px 10px 100px 100px;
+	-moz-border-radius: 10px 10px 100px 100px;
+	-ms-border-radius: 10px 10px 100px 100px;
+	-o-border-radius: 10px 10px 100px 100px;
+}
+
+.form_section h2 {
+	text-align: center;
+}
+
+.inner_form {
+	display: grid;
+	justify-content: center;
+	font-size: 1.3em;
+	gap: 15px;
+}
+
+.inner_form input, .inner_form textarea {
+	font-size: 1em;
+	width: 60vw;
+	min-width: 100px;
+	height: 6vh;
+	border: 1px double #e5e5e5;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+
+.inner_form textarea {
+	height: 30vh;
+}
+
+.inner_form button {
+	font-size: 1.3em;
+	margin-top: 50px;
+	width: 60vw;
+	min-width: 100px;
+	height: 10vh;
+	border: none;
+	background: radial-gradient(rgb(45, 45, 45), rgb(45, 45, 45),rgb(47, 47, 47));
+	color: white;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+
 section img {
 	box-shadow: 0px 5px 5px rgb(165, 165, 165);
 	margin: 1%;
@@ -224,4 +277,8 @@ section img {
 	-o-border-radius:6px;
 	filter:contrast(1.06) brightness(1.06);
 	-webkit-filter:contrast(1.06) brightness(1.06);
+}
+
+p.bigger {
+	font-size: 1.6em;
 }
