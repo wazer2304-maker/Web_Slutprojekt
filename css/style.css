@@ -1,18 +1,3 @@
-/*
-IDn som används för sidoselektion via css:  
-    page_index
-    page_eliten
-    page_historia
-    page_form
-    page_ligor
-    page_lander
-    page_spelare
-    page_argentina
-    page_ronaldo
-    (page_test)
-*/
-
-
 .FONT-bungee-spice {
 	font-family: "Bungee Spice", sans-serif;
 	font-weight: 400;
@@ -102,31 +87,31 @@ header nav li {
 	border-radius: 5px;
 }
 
-header nav li:hover {
-	animation: navHover 1s;
-	-webkit-animation: navHover 1s;
-	box-shadow: 6px 0;
+header nav li:hover { /*Header-länkarna får en blå högersida som smyger fram över 1 sek. */
+	box-shadow: 3px 0;
+	transition-duration: 1s;
+}
+
+@media (max-width: 800px) {
+	header nav li {
+		width: 4em;
+		height: 2.5em;
+	}
+	header nav ul {
+		gap: 10px;
+	}
 }
 
 
-@keyframes navHover {
-	0% {
-		box-shadow: 0 0;
-}
-	100% {
-		box-shadow: 6px 0;
-}
 
-}
-
-header nav li a {
+header nav li a { /*Ändrar färg & tar bort underline för länkarna*/
 	text-decoration: none;
 	color: #506ba5;
 }
 
 /*HEADER*/
 
-/*FOOTERN FÖR ALLA SIDOR    h3 p ul*/
+/*FOOTERN FÖR ALLA SIDOR   */
 footer {
 	box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px,
 		rgba(10, 37, 64, 0.35) 0 -2px 6px 0 inset;
@@ -139,7 +124,7 @@ footer {
 	padding: 2px;
 }
 
-footer h3 {
+footer h3 { /*"FIFA 2024 - texten, 1.8em storlek i copyright-arean, BOLD (tjock text) och åt vänster*/
 	grid-area: copyright;
 	font-size: 1.8em;
 	font-weight: bold;
@@ -151,41 +136,81 @@ footer > ul {
 	justify-content: right;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0;
 	padding: 0;
 }
 
-footer > ul > li {
-	list-style-type: none;
-	margin: 1vw;
-}
 
-footer li {
+footer li { /*Social-knapparna : höjd och bredd 3 em, helt runda*/
 	width: 3em;
 	height: 3em;
 	border-radius: 100%;
+	list-style-type: none; /*Knapparna är i en ul, tar bort prickarna.*/
+	margin: 1vw;/*Mellanrumn så att de inte är så nära varandra*/
 }
 
 footer li:hover {
+	/*Närdehovraspå: skugga,större&allt under 1/2 sekund*/
 	box-shadow: rgba(50, 50, 50, 0.7) 1px 3px 2px;
 	transform: scale(1.1);
 	transition: 0.5s;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-ms-transition: 0.5s;
+	-o-transition: 0.5s;
 }
 /*FOOTER*/
 
 /*Enkel Allokering utav utrymme för innehåll*/
 #ContentContainer {
 	width: 100vw;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	gap: 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	gap: 20px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 
-section {
-	width: 600px;
+section {/*En sektion,"mini-innehållare"*/
+	padding: 10px;
+	width: 500px;
 	height: 800px;
 	background-color: #f9f9f9;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+}
+
+.img_split { /*En sektion, "mini-innehållare" med 50% för bild.  */
+	display: grid;
+	grid-template-rows: 2fr 3fr;
+}
+
+.side_split { /*För sektioner, delad 50% på mitten.   */
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.top_img_split { /*För sektioner, delar upp vertikalt 1:4 för topp-bilder på sektionen*/
+	display: grid;
+	grid-template-rows: 1fr 4fr;
+}
+
+.wide_section {
+	width: 80%;
+}
+
+section img {
+	box-shadow: 0px 5px 5px rgb(165, 165, 165);
+	margin: 1%;
+	width: 98%;
+	border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	-ms-border-radius:6px;
+	-o-border-radius:6px;
+	filter:contrast(1.06) brightness(1.06);
+	-webkit-filter:contrast(1.06) brightness(1.06);
 }
