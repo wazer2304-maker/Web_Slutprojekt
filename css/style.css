@@ -311,10 +311,19 @@ section p {
 }
 
 .banner_section p {
-	font-size: 3ch;
+	font-size: 2.4ch;
 	grid-row: span 2;
 	grid-column: span 2;
 	margin: 5vmin;
+}
+
+.banner_section h3 {
+	font-size: 1.5em;
+}
+
+.banner_section a {
+	font-size: 1.2em;
+	color: #304574;
 }
 
 .banner_section .centered_three {
@@ -328,7 +337,7 @@ section p {
 
 .banner_section .centered_three div {
 	width: 30vw;
-	padding: 10px;
+	padding: 15px;
 	margin: 5px;
 	border: 2px solid rgba(0,0,0,0.1);
 	border-radius:5px;
@@ -336,16 +345,6 @@ section p {
 	-moz-border-radius:5px;
 	-ms-border-radius:5px;
 	-o-border-radius:5px;
-}
-
-.banner_section h3 {
-	font-size: 1.5em;
-}
-
-.banner_section a {
-	font-size: 1.2em;
-	text-decoration: none;
-	color: #304574;
 }
 
 .form_section { /*Den större containern (sektionen) till formuläret i form.html */
@@ -425,21 +424,6 @@ section p {
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
-}
-
-.inner_form button:hover {
-	animation: confirm 1s cycle infinite;
-	-webkit-animation: confirm 1s cycle infinite;
-}
-
-@keyframes confirm { /*Make rest of form fade out*/
-	0% {
-		color: red;
-	}
-	100% {
-		color: yellow;
-	}
-
 }
 
 section img {
@@ -536,6 +520,7 @@ figcaption { /*Figcaption, text under bilder*/
 	color: white;
 	border: 1px solid var(--primary-color);
 	height: fit-content;
+	padding: 10px;
 	width: fit-content;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -550,17 +535,21 @@ background: var(--secondary-color);
 }
 
 fieldset {
-/*grid*/
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	border: 1px solid var(--primary-color);
-
-
+	margin-top: 40px;
+	margin-bottom: 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	width: 40%;
+	height: fit-content;
+	justify-content: left;
+}
+#spelare, #fan, #tränare, #annat { /*Radioknapparna får 30px höjd : Bör funka på alla enheter.*/
+	height: 30px;
+	width: fit-content;
 }
 
-legend {
-	font-size: 1.3em;
+legend { /*Formulärtexten "Vad är din anknytning till FIFA?", 1em och "tjock" text */
+	font-size: 1.6ch;
 	font-weight: bold;
 }
-
