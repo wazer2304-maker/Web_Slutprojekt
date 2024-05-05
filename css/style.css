@@ -396,6 +396,10 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	border-radius: 0 10px 10px 0; /*Gör hörnen kantiga igen på ifyllda formulärsdelar, snyggt med grön kantlinje*/
 }
 
+.inner_form input:invalid, .inner_form textarea:invalid { /*Radioknapparna i inner_form, 2rem storleks radioknappar*/
+	text-decoration: rgb(255, 168, 168) underline;
+}
+
 .inner_form input[type="checkbox"] { /*Radioknapparna får höjden (därav storleken) 2rem*/
 	height: 2rem;
 }
