@@ -263,7 +263,6 @@ section p {
 	margin: 0;
 	padding: 0;
 	box-shadow: none;
-	height: 400px;
 	width: 100%;
 	filter: contrast(1.06) brightness(0.96);
 	box-shadow: 2px 0 5px 0px rgba(118, 118, 118, 0.75);
@@ -297,9 +296,9 @@ section p {
 
 .banner_section .centered_three div {
 	width: 30%;
+	padding: 20px;
+	margin: 5px;
 	border: 2px solid yellow;
-	width: 30%;
-	margin: 10px;
 }
 
 .form_section { /*Den större containern (sektionen) till formuläret i form.html */
