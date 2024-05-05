@@ -254,7 +254,7 @@ section p {
 	min-height: 0; /*0 tar bort min-height från övre section, kan bli mindre. */
 	padding: 0;
 	display: grid;
-	grid-template-columns: 2fr 3fr 6fr 2fr;
+	grid-template-columns: 5fr 3fr 6fr 2fr;
 	justify-content: center;
 }
 
@@ -262,20 +262,31 @@ section p {
 	margin: 0;
 	padding: 0;
 	box-shadow: none;
-	filter: contrast(1.06) brightness(0.96);
 	box-shadow: 2px 2px 10px rgba(118, 118, 118, 0.75);
 	object-fit: cover;
-	border-radius: 0 0 80% 0;
-	-webkit-border-radius: 0 0 80% 0;
-	-moz-border-radius: 0 0 80% 0;
-	-ms-border-radius: 0 0 80% 0;
-	-o-border-radius: 0 0 80% 0;
-	-webkit-filter: contrast(1.06) brightness(0.96);
+    
+    height: 100%;
+
+    clip-path: polygon(0 0,
+                       100% 0,
+                       100% 0,
+                       100% 0,
+                       80% 100%,
+                       0 100%,
+                       0 100%,
+                       0 0);
 }
 
 @media (max-width: 800px) {
 	.banner_section img {
 		display: none;
+	}
+	.banner_section {
+		grid-template-columns: 1fr 1fr;
+	}
+	.banner_section p {
+		font-size: 1.5em;
+		margin:10px;
 	}
 }
 
@@ -303,10 +314,6 @@ section p {
 
 .banner_section h3 {
 	font-size: 1.5em;
-}
-
-.banner_section p {
-	font-size: 1.2em;
 }
 
 .banner_section a {
