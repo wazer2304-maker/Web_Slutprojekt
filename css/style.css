@@ -76,7 +76,7 @@ header nav li { /*li är de visuella knapparna // länkarna*/
 	line-height: 3em; /*Centrerar texten vertikalt med en height på 3em*/
 	border: 1px solid rgb(210,220,220); 
 	border-bottom: 0; /*Tar bort bottenlinjen, knappen har borders  på alla andra ställen.*/
-	font-size: 1.6em; /*Storlek på texten i länkarna*/
+	font-size: 3.5ex; /*Storlek på texten i länkarna*/
 	text-align: center; /*Centrerar texten horisontellt*/
 	-webkit-border-radius: 5px; /*Rundar av hörnen på knapparna, 5px på alla hörn*/
 	-moz-border-radius: 5px;
@@ -388,7 +388,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 }
 
 .inner_form input:valid, .inner_form textarea:valid { /*När input och textarea är ifyllda, blir de grönmarkerade, snyggt!*/
-	border-left: 5px solid rgb(23, 117, 23); /*Grön vänsterkantslinje på ifyllda formulärsdelar*/
+	border-left: 5px solid hsl(120, 67.1%, 27.5%); /*Grön vänsterkantslinje på ifyllda formulärsdelar*/
 	-webkit-border-radius: 0 10px 10px 0;
 	-moz-border-radius: 0 10px 10px 0;
 	-ms-border-radius: 0 10px 10px 0;
@@ -545,13 +545,12 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked {
-	/*När radioknapparna är klickade på, blir de lite större*/
+	/*Närradioknapparnaärklickadepå,blirdelitestörre*/-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
 	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	-o-transform: scale(1.1);
-	-webkit-transform: scale(1.1);
-	transform: scale(1.1);
+	transform: scale(1.2);
 }
 
 legend { /*Formulärtexten "Vad är din anknytning till FIFA?", 1.6ch och "tjock" text */
