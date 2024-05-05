@@ -4,9 +4,12 @@
 	--tertiary-color: #e5e5e5;
 	--quaternary-color: #d5d5d5;
 } /*Vissa validatorer//linters ser --variabelnamn som tomrum vilket innebär att den ser :root som tom. 
-    Regeln fungerar oavsett validatorerns åsikt. 
+    Regeln fungerar oavsett validatorernas åsikt.
 	https://caniuse.com/?search=var()
 	https://caniuse.com/?search=%3Aroot
+
+	Vissa blir även sura på gap.
+	https://caniuse.com/?search=gap
 	*/
 
 body {
@@ -21,8 +24,6 @@ body {
 	display: grid; /*Stor-griddet för varje sida*/
 	overflow-x: hidden; /* Gömmer horizontella scrollbaren */
 }
-
-
 
 /*Headern för alla sidor*/
 header {
@@ -171,17 +172,17 @@ section {/*En sektion,"mini-behållare" i main */
 	height: fit-content; /*Tar så mycket plats som det behövs, inte mer. */
 	min-height: 700px; /*Minsta höjd på sektionen, 700px är en bra höjd för att inte sektionen ska bli för liten*/
 	background-color: var(--secondary-color); /*Bakgrundsfärg på sektionen, nästan vit*/
-	border-radius: 4px; /*Rundar av hörnen på sektionen, 4px på alla hörn*/
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-ms-border-radius: 4px;
 	-o-border-radius: 4px;
+	border-radius: 4px; /*Rundar av hörnen på sektionen, 4px på alla hörn*/
 }
 
-*:target::before { /*När en sida klickas igen, kommer en pil fram. Detta är för att ge en bättre upplevelse. */
+p:target::before, h2:target::before, dt:target::before { /*När en sida klickas igen, kommer en pil fram. Detta är för att ge en bättre upplevelse. */
 	content: "► "; /*Pil-tecknet förtydligar att man är på den sidan man är på, om man skulle få för sig att tro något annat*/
 	color: var(--primary-color); /*En "pil" i primary color framför texten, scrollar även ner till stycket*/
-}
+} /*p, h2, dt används i de olika sidorna för denna funktionen*/
 
 section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för standardtext*/
 	font-size: 1.4em;
@@ -189,7 +190,6 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 
 .top_img_split { /*Klass för sektioner, skapar grid ämnad för att ha en bild i och text nedan*/
 	display: grid; /*Grid för att strukturera upp bilden och texten, inga areor benämns , mycket versatil*/
-	justify-items: center;
 }
 
 .top_img_split h2 { /*H2 i top_img_split, 2.5em storlek, rubriken för sektionen*/
@@ -201,11 +201,11 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 .top_img_split img { /*Bilden i top_img_split, 200px bred, 120px hög, rundade hörn, se lander.html för varför just dessa höjder*/
 	width: 200px;
 	height: 120px;
-	border-radius: 10px; /*Rundar smått av hörnen på bilden, 10px på alla hörn*/
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
+	border-radius: 10px; /*Rundar smått av hörnen på bilden, 10px på alla hörn*/
 }
 
 .top_img_split p { /*Texten i top_img_split, 1.2em storlek, 1.2em är en bra storlek för standardtext*/
@@ -224,11 +224,11 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	height: fit-content;
 	grid-column: span 2; /*Tar upp två kolumner, alltså hela bredden på gridden i sektionen*/
 	background: linear-gradient(rgb(212, 212, 212), rgb(233, 233, 233)); /*Bakgrundsfärg på länkarna, grå-vit gradient*/
-	border-radius: 10px; /*Rundar av hörnen på länkarna, 10px på alla hörn*/
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
+	border-radius: 10px; /*Rundar av hörnen på länkarna, 10px på alla hörn*/
 }
 
 .collapse_lander_title { /*Klass för divar inom sektioner, mycket viktig för att innehållet i flera sidor ska kunna kollapsa. */
