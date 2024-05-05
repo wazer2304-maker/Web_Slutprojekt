@@ -169,7 +169,7 @@ section {/*En sektion,"mini-innehållare"*/
 	padding: 10px;
 	width: 500px;
 	height: fit-content;
-	min-height: 800px;
+	min-height: 700px;
 	background-color: #f9f9f9;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -250,10 +250,11 @@ section p {
 }
 
 .banner_section {
-	width: 100%;
+	width: 100vw;
+	min-height: 0; /*0 tar bort min-height från övre section, kan bli mindre. */
 	padding: 0;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 3fr;
 	grid-template-rows: auto 1fr 1fr;
 	justify-content: center;
 }
@@ -262,17 +263,46 @@ section p {
 	margin: 0;
 	padding: 0;
 	box-shadow: none;
-	height: 300px;
+	height: 400px;
 	width: 100%;
+	filter: contrast(1.06) brightness(0.96);
+	box-shadow: 2px 0 5px 0px rgba(118, 118, 118, 0.75);
 	object-fit: cover;
-	border-radius: 0;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	-ms-border-radius: 0;
-	-o-border-radius: 0;
+	border-radius: 0 0 100% 0;
+	-webkit-border-radius: 0 0 100% 0;
+	-moz-border-radius: 0 0 100% 0;
+	-ms-border-radius: 0 0 100% 0;
+	-o-border-radius: 0 0 100% 0;
+	-webkit-filter: contrast(1.06) brightness(0.96);
 }
 
-.form_section {
+@media (max-width: 800px) {
+	.banner_section img {
+		display: none;
+	}
+}
+
+.banner_section h2 {
+	font-size: 2em;
+}
+
+.banner_section .centered_three {
+	width: 100vw;
+	border: 2px solid red;
+	/*flexbox!*/
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.banner_section .centered_three div {
+	width: 30%;
+	border: 2px solid yellow;
+	width: 30%;
+	margin: 10px;
+}
+
+.form_section { /*Den större containern (sektionen) till formuläret i form.html */
 	width: 60vw;
 	border-left: 10px solid #475e8f;
 	background: linear-gradient(rgb(255, 255, 255), rgb(228, 232, 233));
@@ -294,7 +324,7 @@ section p {
 	text-align: center;
 }
 
-.inner_form {
+.inner_form { /*Den inre containern som innehåller de faktiska form-delarna*/
 	display: grid;
 	justify-content: center;
 	font-size: 1.3em;
