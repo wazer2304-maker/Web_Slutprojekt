@@ -50,23 +50,34 @@
                   <label for="meddelande">Meddelande</label>
                   <textarea id="meddelande" name="meddelande" placeholder="..." required></textarea>
 				  
-				  <fieldset>
-					 <legend>Vilket lag tror du kommer vinna FIFA 2024?</legend>
-					 <input type="checkbox" id="sverige" name="sverige" value="sverige">
-					 <label for="sverige">Sverige</label>
-					 <input type="checkbox" id="england" name="england" value="england">
-					 <label for="england">England</label>
-					 <input type="checkbox" id="spanien" name="spanien" value="spanien">
-					 <label for="spanien">Spanien</label>
-				  </fieldset>
-
-				  VIlket är ditt favoritlag?
-				  <select name="lag" id="lag">
+				  <label for="lag">Välj favoritlag</label>
+				  <select name="favoritlag" id="lag">
 					 <option value="sverige">Sverige</option>
 					 <option value="england">England</option>
 					 <option value="spanien">Spanien</option>
-
+					 <option value="italien">Italien</option>
+					 <option value="frankrike">Frankrike</option>
+					 <option value="tyskland">Tyskland</option>
+					 <option value="portugal">Portugal</option>
+					 <option value="nederländerna">Nederländerna</option>
+					 <option value="belgien">Belgien</option>
+					 <option value="kroatien">Kroatien</option>
+					 <option value="schweiz">Schweiz</option>
+					 <option value="danmark">Danmark</option>
+					 <option value="sverige">Annat land</option>
 				  </select>
+				  
+				  <br>
+
+				  <fieldset>
+					 <legend>Hur är du anknyten till FIFA?</legend>
+					 <input type="checkbox" id="spelare" name="anknytning" value="spelare">
+					 <label for="spelare">Jag är en professionell fotbollsspelare.</label>
+					 <input type="checkbox" id="arrangor" name="anknytning" value="arrangor">
+					 <label for="arrangor">Jag är en arrangör.</label>
+					 <input type="checkbox" id="supporter" name="anknytning" value="supporter">
+					 <label for="supporter">Jag är en supporter.</label>
+				  </fieldset>
 
 				  <button type="submit">Skicka</button>
                </form>

@@ -51,7 +51,7 @@ header ul {
 header h1 {
 	border-bottom: 1px solid var(--primary-color);
 	width: fit-content;
-	font-size: 3em;
+	font-size: 3rem;
 	line-height: 1em;
 	padding: 2px;
 	font-weight: bold;
@@ -361,7 +361,7 @@ section p {
 
 @media (max-width: 800px) {
 	.form_section {
-		width: 90%;
+		width: 100vw;
 		border: none;
 	}
 }
@@ -425,6 +425,21 @@ section p {
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
+}
+
+.inner_form button:hover {
+	animation: confirm 1s cycle infinite;
+	-webkit-animation: confirm 1s cycle infinite;
+}
+
+@keyframes confirm { /*Make rest of form fade out*/
+	0% {
+		color: red;
+	}
+	100% {
+		color: yellow;
+	}
+
 }
 
 section img {
@@ -492,7 +507,7 @@ iframe { /*Iframe (youtube) i argentina.html*/
 	color: white;
 }
 
-dt {
+dt { /*Historia använder dd, med dt & dl. Sätter enkla egenskaper för läslighet*/
 	font-size: 1.5em;
 	font-weight: bold;
 	border-bottom: 1px solid var(--primary-color);
@@ -504,7 +519,7 @@ dd {
 	font-size: 1.2em;
 }
 
-figcaption {
+figcaption { /*Figcaption, text under bilder*/
 	font-size: 1em;
 	text-align: center;
 }
@@ -513,13 +528,39 @@ figcaption {
 	box-shadow: none;
 }
 
+
+
 #lag {
-color: black;
-height: 3vh;
-width: 30%;
+	background: var(--primary-color);
+	font-size: 1.2em;
+	color: white;
+	border: 1px solid var(--primary-color);
+	height: fit-content;
+	width: fit-content;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 #lag option {
-color: rgb(76, 49, 49);
+color: var(--primary-color);
+background: var(--secondary-color);
+}
+
+fieldset {
+/*grid*/
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	border: 1px solid var(--primary-color);
+
+
+}
+
+legend {
+	font-size: 1.3em;
+	font-weight: bold;
 }
 
