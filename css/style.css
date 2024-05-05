@@ -242,6 +242,13 @@ section p {
 	grid-column: span 2;
 }
 
+.collapse_lander_title h2 {
+	font-size: 2.2em;
+	margin: 20px;
+	text-align: center;
+	text-decoration: underline;
+}
+
 .wide_section {
 	width: 80%;
 	padding: 30px;
@@ -394,6 +401,11 @@ section p {
 	-o-border-radius: 0 10px 10px 0;
 }
 
+.inner_form input[type="checkbox"] {
+	height: 2rem;
+}
+
+
 .inner_form textarea {
 	height: 30vh;
 }
@@ -479,3 +491,35 @@ iframe { /*Iframe (youtube) i argentina.html*/
 	background-color: var(--primary-color);
 	color: white;
 }
+
+dt {
+	font-size: 1.5em;
+	font-weight: bold;
+	border-bottom: 1px solid var(--primary-color);
+	padding: 20px;
+	margin: 20px;
+}
+
+dd {
+	font-size: 1.2em;
+}
+
+figcaption {
+	font-size: 1em;
+	text-align: center;
+}
+
+.no_shadow { /*Klass för att ta bort skugga på bilder. Se argentina.html*/
+	box-shadow: none;
+}
+
+#lag {
+color: black;
+height: 3vh;
+width: 30%;
+}
+
+#lag option {
+color: rgb(76, 49, 49);
+}
+
