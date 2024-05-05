@@ -181,9 +181,13 @@ section {/*En sektion,"mini-innehållare"*/
 	-o-border-radius: 4px;
 }
 
+*:target::before { /*När en sida klickas igen, kommer en pil fram. Detta är för att ge en bättre upplevelse. */
+	content: "►";
+	color: var(--primary-color); /*En "pil" i primary color framför texten, scrollar även ner till stycket*/
+}
+
 section p {
 	font-size: 1.4em;
-
 }
 
 .top_img_split { /*För sektioner, delar upp vertikalt 1:4 för topp-bilder på sektionen*/
@@ -254,11 +258,10 @@ section p {
 
 .banner_section {
 	width: 100vw;
-	min-height: 0; /*0 tar bort min-height från övre section, kan bli mindre. */
+	min-height: 300px; /*300px sänker min-height från de andra section-reglerna, kan nu bli mindre. */
 	padding: 0;
 	display: grid;
 	grid-template-columns: 5fr 3fr 6fr 2fr;
-	
 	justify-content: center;
 }
 
@@ -281,7 +284,7 @@ section p {
                        0 0);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
 	.banner_section img {
 		display: none;
 	}
@@ -301,7 +304,7 @@ section p {
 }
 
 .banner_section p {
-	font-size: 1.5em;
+	font-size: 3ch;
 	grid-row: span 2;
 	grid-column: span 2;
 	margin: 5vmin;
@@ -369,6 +372,7 @@ section p {
 
 .inner_form input, .inner_form textarea {
 	font-size: 1em;
+	padding: 10px;
 	width: 60vw;
 	min-width: 100px;
 	height: 6vh;
@@ -378,6 +382,16 @@ section p {
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
+	resize: none;
+}
+
+.inner_form input:valid, .inner_form textarea:valid {
+	border-left: 5px solid rgb(23, 117, 23);
+	border-radius: 0 10px 10px 0;
+	-webkit-border-radius: 0 10px 10px 0;
+	-moz-border-radius: 0 10px 10px 0;
+	-ms-border-radius: 0 10px 10px 0;
+	-o-border-radius: 0 10px 10px 0;
 }
 
 .inner_form textarea {

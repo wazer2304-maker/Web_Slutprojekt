@@ -26,7 +26,7 @@
                   <ul>
                      <li><a href="./eliten.html">Eliten</a></li>
                      <li><a href="./historia.html">Historia</a></li>
-                     <li><a href="./form.html">Åsikter</a></li>
+                     <li><a href="#form">Åsikter</a></li>
                   </ul>
                </nav>
             </li>
@@ -34,16 +34,43 @@
       </header>
       <main id="ContentContainer">
          <section class="wide_section form_section">
-            <h2>Vad tycker du?</h2>
+            <h2 id="form">Vad tycker du?</h2>
             <div class="form_middle">
                <form class="inner_form" method="get" action="./tack.html">
                   <label for="namn">Namn</label>
-                  <input type="text" id="namn" name="namn" required>
+                  <input type="text" id="namn" name="namn" placeholder="Namn Efternamn" required>
                   <label for="email">E-post</label>
-                  <input type="email" id="email" name="email" required>
+                  <input type="email" id="email" name="email" placeholder="namn.efternamn@email.se" required>
+
+				  <label for="telefon">Telefonnummer</label>
+				  <input type="tel" id="telefon" name="telefon" placeholder="070-000000" required>
+				  <label for="födelsedatum">Födelsedatum</label>
+				  <input type="date" id="födelsedatum" name="födelsedatum" required>
+
                   <label for="meddelande">Meddelande</label>
-                  <textarea id="meddelande" name="meddelande" required></textarea>
-                  <button type="submit">Skicka</button>
+                  <textarea id="meddelande" name="meddelande" placeholder="..." required></textarea>
+				  
+				  <fieldset>
+					 <legend>Vilket lag tror du kommer vinna FIFA 2024?</legend>
+					 <input type="checkbox" id="sverige" name="sverige" value="sverige">
+					 <label for="sverige">Sverige</label>
+					 <input type="checkbox" id="england" name="england" value="england">
+					 <label for="england">England</label>
+					 <input type="checkbox" id="spanien" name="spanien" value="spanien">
+					 <label for="spanien">Spanien</label>
+				  </fieldset>
+				  
+
+
+				  <progress>
+					 <label for="progress">Progress</label>
+					 <progress id="progress" value="50" max="100"></progress>
+				  </progress>
+
+
+
+
+				  <button type="submit">Skicka</button>
                </form>
             </div>
          </section>
