@@ -524,7 +524,6 @@ figcaption { /*Figcaption, text under bilder*/
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
 	border-radius: 5px; /*Rundad knapp*/
-
 }
 
 #lag option { /*Alternativen i dropdownen för favoritlag*/
@@ -539,9 +538,20 @@ fieldset { /*Ger en "ram" med strukturerat innehåll i formuläret, i form.html 
 	grid-template-columns: auto auto ; /*2 kolumner, sätter på plats*/
 	width: 40%; /*Bredd på fieldset, mindre än 100%. */
 }
-#spelare, #fan, #tränare, #annat { /*Radioknapparna får 30px höjd*/
+input[type="radio"] {
+	/*Radioknapparna får 30px höjd*/
 	height: 30px;
 	width: fit-content;
+}
+
+input[type="radio"]:checked {
+	/*När radioknapparna är klickade på, blir de lite större*/
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 legend { /*Formulärtexten "Vad är din anknytning till FIFA?", 1.6ch och "tjock" text */
