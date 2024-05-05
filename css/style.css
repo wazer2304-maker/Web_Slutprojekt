@@ -3,7 +3,11 @@
 	--secondary-color: #f9f9f9;
 	--tertiary-color: #e5e5e5;
 	--quaternary-color: #d5d5d5;
-}
+} /*Vissa validatorer//linters ser --variabelnamn som tomrum vilket innebär att den ser :root som tom. 
+    Regeln fungerar oavsett validatorerns åsikt. 
+	https://caniuse.com/?search=var()
+	https://caniuse.com/?search=%3Aroot
+	*/
 
 body {
 	/* '*' Sätter en standardfont. "Backup": sans-serif.  */
@@ -25,12 +29,11 @@ header {
 	display: grid; /*Grid för header, strukturerar upp h1:an och de tre länkarna*/
 	background: var(--secondary-color); /*Bakgrundsfärg på header, nästan vit*/
 	box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em, rgba(90, 125, 188, 0.05) 0 0.25em 1em; /*Mycket liten skugga på header*/
-	border-radius: 0 0 15px 15px; /*Rundar av hörnen på header, 15px på botten (vänster & höger) */
 	-webkit-border-radius: 0 0 15px 15px;
 	-moz-border-radius: 0 0 15px 15px;
 	-ms-border-radius: 0 0 15px 15px;
 	-o-border-radius: 0 0 15px 15px;
-
+	border-radius: 0 0 15px 15px; /*Rundar av hörnen på header, 15px på botten (vänster & höger) */
 }
 
 header ul { /*Ul i header, för att få länkarna i en kollapserbar rad*/
@@ -232,12 +235,12 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	width: 100%; /*Tar upp hela bredden av sektionen*/
 	display: flex; /*Flexbox för att kunna kollapsa ihop delarna till en vertikal rad för små skärmar*/
 	flex-wrap: wrap; /*Wrappar vid litet utrymme. Kan kollapsa till litet format.*/
-	justify-content: left; 
+	justify-content: left;
 	grid-column: span 2; /*Tar upp två kolumner, alltså hela bredden på gridden i sektionen*/
 }
 
 .collapse_lander_title h2 { /*H2 i collapse_lander_title, 2.2em storlek, blir rubriken för hela sektionen*/
-	font-size: 2.2em; 
+	font-size: 2.2em;
 	margin: 20px; /*Mellanrum från samtliga delar*/
 	text-align: center; /*Centrerar texten horisontellt*/
 	text-decoration: underline; /*Underline på rubriken, snyggt*/
@@ -259,11 +262,12 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 
 .banner_section { /*Den stora containern (sektionen) i index.html som sträcker sig över hela skrämen breddvis */
 	width: 100vw; /*Tar upp hela bredden av sidan*/
-	min-height: 300px; /*300px sänker min-height från de andra section-reglerna, kan nu bli mindre. */
+	min-height: 320px; /*320px sänker min-height från de andra section-reglerna, kan nu bli mindre. */
 	padding: 0; /*Tar bort paddingen som finns som standard*/
 	display: grid; /*Grid för att strukturera upp bilden och introduktionstextenerna*/
-	grid-template-columns: 5fr 3fr 6fr 2fr; /*Fyra kolumner, 5, 3, 6 och 2 fraktioner av skärmen för : bild, titel, text, utrymme*/
+	grid-template-columns: 5fr auto 6fr 2fr; /*Fyra kolumner, 5, auto, 6 och 2 fraktioner av skärmen för : bild, titel, text, utrymme*/
 }
+
 
 .banner_section img { /*Bilden i banner_section, 100% hög, inget mellanrum till kantenra, mycket lite skugga, object-fit: cover*/
 	margin: 0;
@@ -271,7 +275,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	box-shadow: 2px 2px 10px rgba(118, 118, 118, 0.75);
 	object-fit: cover;
 	grid-row: span 2; /*Tar upp två rader, alltså hela höjden på gridden i sektionen*/
-    height: 100%; 
+    height: 100%;
 	/*clip-path splittrar visuellt bilden. "Klipper" ut enligt polygonen nedan, skapar den snygga slicen i index.hmtl, om det inte stöds visas en vanlig bild */
     clip-path: polygon(0 0,
                        100% 0,
@@ -288,7 +292,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 		display: none; /*Döljer bilden på mindre skärmar, för att inte ta upp för mycket plats*/
 	}
 	.banner_section {
-		grid-template-columns: 1fr 1fr; /*Två kolumner, 1 fraktion av skärmen för : titel, text*/
+		grid-template-columns: auto auto; /*Två kolumner, 1 fraktion av skärmen för : titel, text*/
 	}
 	.banner_section p {
 		font-size: 1.5em; /*Ändrar textstorlek & utrymmet för texten (från 1.2em) */
@@ -329,23 +333,24 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	width: 30vw;
 	padding: 15px; /*Lite padding för att inte texten ska vara för nära kanten*/
 	margin: 5px; /*Litet mellanrum mellan delarna*/
+	border: 2px solid rgb(0,0,0); /*Fallback*/
 	border: 2px solid rgba(0,0,0,0.1); /*En mycket liten border på delarna, snyggt*/
-	border-radius:5px; /*Rundar av hörnen på delarna, 5px på alla hörn*/
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	-ms-border-radius:5px;
 	-o-border-radius:5px;
+	border-radius:5px; /*Rundar av hörnen på delarna, 5px på alla hörn*/
 }
 
 .form_section { /*Klass för den större containern (sektionen) till formuläret i form.html */
 	width: 60vw; /*Bredd på sektionen, 60vw är en bra bredd för formuläret*/
 	border-left: 10px solid var(--primary-color); /*Tjock blå vänsterkantslinje för att det är väldigt snyggt*/
 	background: linear-gradient(rgb(255, 255, 255), rgb(228, 232, 233)); /*Bakgrundsfärg på sektionen, vit-grå gradient, fade:ar ut*/
-	border-radius: 10px 10px 100px 10px; /*Rundar av hörnen på sektionen, 10px på alla hörn, 100px på botten vänster där gradienten är som mest utblandad med background*/
 	-webkit-border-radius: 10px 10px 100px 10px;
 	-moz-border-radius: 10px 10px 100px 10px;
 	-ms-border-radius: 10px 10px 100px 10px;
 	-o-border-radius: 10px 10px 100px 10px;
+	border-radius: 10px 10px 100px 10px; /*Rundar av hörnen på sektionen, 10px på alla hörn, 100px på botten vänster där gradienten är som mest utblandad med background*/
 }
 
 @media (max-width: 800px) { /*Media query för att anpassa till mindre skärmar, 800px är en bra gräns för detta*/
@@ -372,22 +377,22 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	width: 60vw; /*Bredd på input och textarea, 60vw är en bra bredd för formulärsdelarna*/
 	min-width: 100px; /*Minsta bredd på input och textarea, 100px är en bra minsta bredd för formulärsdelarna (när skärmen blir mindre)*/
 	height: 6vh; /*Höjd på input och textarea*/
-	border: 1px double var(--tertiary-color); 
-	border-radius: 10px; /*Rundar av hörnen på input och textarea, 10px på alla hörn*/
+	border: 1px double var(--tertiary-color);
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
+	border-radius: 10px; /*Rundar av hörnen på input och textarea, 10px på alla hörn*/
 	resize: none; /*Förhindrar att textarea kan ändras i storlek, istället föredras scrollning*/
 }
 
 .inner_form input:valid, .inner_form textarea:valid { /*När input och textarea är ifyllda, blir de grönmarkerade, snyggt!*/
 	border-left: 5px solid rgb(23, 117, 23); /*Grön vänsterkantslinje på ifyllda formulärsdelar*/
-	border-radius: 0 10px 10px 0; /*Gör hörnen kantiga igen på ifyllda formulärsdelar, snyggt med grön kantlinje*/
 	-webkit-border-radius: 0 10px 10px 0;
 	-moz-border-radius: 0 10px 10px 0;
 	-ms-border-radius: 0 10px 10px 0;
 	-o-border-radius: 0 10px 10px 0;
+	border-radius: 0 10px 10px 0; /*Gör hörnen kantiga igen på ifyllda formulärsdelar, snyggt med grön kantlinje*/
 }
 
 .inner_form input[type="checkbox"] { /*Radioknapparna får höjden (därav storleken) 2rem*/
@@ -407,23 +412,23 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	min-width: 100px; /*Minsta bredd på knappen, 100px är en bra minsta bredd för knappen (när skärmen blir mindre)*/
 	height: 10vh; /*Höjd på knappen*/
 	border: none; /*Tar bort border från knappen*/
-	background: var(--primary-color); 
+	background: var(--primary-color);
 	color: white;
-	border-radius: 10px; 
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
+	border-radius: 10px;
 }
 
 section img { /*Generiskt för bilderna i sektionerna*/
-	box-shadow: 0px 5px 5px rgb(165, 165, 165); /*Skugga på bilderna, snyggt och stilrent, kan tas bort av klassen no_shadow */
+	box-shadow: 0 5px 5px rgb(165, 165, 165); /*Skugga på bilderna, snyggt och stilrent, kan tas bort av klassen no_shadow */
 	width: 98%; /*Bredd på bilderna, 98% är en bra bredd för bilderna för att ge lite avstånd till kanten*/
-	border-radius:6px; /*Rundar av hörnen på bilderna, 6px på alla hörn*/
 	-webkit-border-radius:6px;
 	-moz-border-radius:6px;
 	-ms-border-radius:6px;
 	-o-border-radius:6px;
+	border-radius:6px; /*Rundar av hörnen på bilderna, 6px på alla hörn*/
 }
 
 .no_shadow { /*Klass för att ta bort skugga på bilder. Se argentina.html*/
@@ -501,11 +506,11 @@ figcaption { /*Figcaption, text under bilder*/
 	color: white; /*Vit text*/
 	width: fit-content; /*Krymper i sida så att den inte tar upp 100%*/
 	padding: 10px; /*Fylligare knapp*/
-	border-radius: 5px; /*Rundad knapp*/
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
+	border-radius: 5px; /*Rundad knapp*/
 
 }
 
@@ -518,7 +523,7 @@ fieldset { /*Ger en "ram" med strukturerat innehåll i formuläret, i form.html 
 	margin-top: 40px; /*Mellanrum från föregående element*/
 	margin-bottom: 40px; /*Mellanrum till nästa element*/
 	display: grid; /*Grid med (2*row) antal areor*/
-	grid-template-columns: 1fr 1fr; /*2 kolumner, sätter på plats*/
+	grid-template-columns: auto auto ; /*2 kolumner, sätter på plats*/
 	width: 40%; /*Bredd på fieldset, mindre än 100%. */
 }
 #spelare, #fan, #tränare, #annat { /*Radioknapparna får 30px höjd*/
