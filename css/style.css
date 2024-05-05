@@ -352,7 +352,7 @@ p.bigger {
 	font-size: 1.6em;
 }
 
-iframe {
+iframe { /*Iframe (youtube) i argentina.html*/
 	width: 100%;
 	height: fit-content;
 	min-height: 300px;
@@ -371,7 +371,7 @@ iframe {
 	grid-column: span 2;
 }
 
-#mål {
+#mål { /*Tabellen över spelare & mål (spelare.html) */
 	width: 100%;
 	height: 100%;
 }
@@ -380,7 +380,7 @@ iframe {
 	padding: 10px;
 }
 
-#mål tr:nth-child(even) {
+#mål tr:nth-child(even) { /*Even & odd -> zebrastriping*/
 	background-color: #f9f9f9;
 }
 
@@ -392,7 +392,7 @@ iframe {
 	background-color: #d5d5d5;
 }
 
-#mål th {
+#mål th { /*Bakgrund på table head : ser snyggt ut. Matchar med vit färg för läslighet*/
 	background-color: #475e8f;
 	color: white;
 }
