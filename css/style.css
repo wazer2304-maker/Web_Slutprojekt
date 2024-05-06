@@ -518,9 +518,10 @@ iframe { /*Iframe (youtube) i argentina.html*/
 	background-color: var(--quaternary-color);
 }
 
-#mål th { /*Blå bakgrund på table head : ser snyggt ut. Matchar med vit färg för läslighet*/
+#mål thead th, #mål tfoot th, #mål tfoot td { /*Blå bakgrund på table head & table foot : ser snyggt ut. Matchar med vit färg för läslighet*/
 	background-color: var(--primary-color);
 	color: white;
+	border: 1px solid rgb(0, 0, 0);
 }
 
 dt { /*Historia.html använder dd, med dt & dl. Sätter enkla egenskaper för läslighet*/
