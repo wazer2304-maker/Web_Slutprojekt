@@ -444,8 +444,27 @@ iframe { /*Iframe (youtube) i argentina.html*/
 	width: 100%; /*Tar upp hela bredden av sektionen*/
 	height: fit-content; /*Tar så mycket plats som det behövs, inte mer. */
 	min-height: 300px; /*Minsta höjd på sektionen, 300px är en bra höjd för att inte sektionen ska bli för liten*/
-	border: none;
-	grid-column: span 2;
+	border: none; /*Ingen border på iframen*/
+	grid-column: span 2; /*Tar upp 2 kolumner i sections-griddet*/
+	animation-name: glowing;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	border-radius: 2px; /*2px så att kanten inte är så skarp men bevarar fyrkanten för videon. */
+}
+
+@keyframes glowing { /*Animation ska locka ögonen till iframen. Skymmer inte resterande innehåll eller iframen. */
+	to { /*Behövs bara to då den går tillbaka till grundegenskaper*/
+		box-shadow:
+		0 0 0 0.5em rgba(4, 0, 255, 0.15), 
+		0 0 0 0.2em rgba(0,0,0,0.2);/*Mycket svag genomskinlig box-shadow : "glowing" */
+	}
+}
+
+@media (max-width: 1000px) { /*Tar bort animationen om skärmen är liten : Ser inte rymligt ut annars. */
+	iframe {
+		animation: none;
+	}
 }
 
 .spelare_img { /*Sido-captionen i spelare.html*/
