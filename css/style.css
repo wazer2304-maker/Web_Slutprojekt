@@ -481,9 +481,9 @@ iframe { /*Iframe (youtube) i argentina.html*/
 	text-align: center;
 }
 
-.spelare_img img { /*Bilderna i spelare.html ska ta upp hela bredden de får och 80% höjden */
+.spelare_img img { /*Bilderna i spelare.html ska ta upp så mycket som de behöver utav bredden & höjden, bilderna ska vara 100% */
 	width: 100%;
-	height: 80%;
+	height: 100%;
 }
 
 .textbox { /*Klass för att få en textruta som tar upp 2 kolumner i ett sections-grid (spelare.html) */
