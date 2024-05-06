@@ -203,9 +203,8 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	text-align: center; /*Centrerar texten horisontellt*/
 }
 
-.top_img_split img { /*Bilden i top_img_split, 200px bred, 120px hög, rundade hörn, se lander.html för varför just dessa höjder*/
+.top_img_split img { /*Bilden i top_img_split, 200px bred, rundade hörn, se lander.html för varför just dessa höjder*/
 	width: 200px;
-	height: 120px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
@@ -587,6 +586,6 @@ legend { /*Formulärtexten "Vad är din anknytning till FIFA?", 1.6ch och "tjock
 	font-weight: bold;
 }
 
-audio {
+audio { /*Audio tar upp sin bredd */
 	width: 100%;
 }
