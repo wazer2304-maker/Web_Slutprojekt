@@ -12,7 +12,9 @@
 	https://caniuse.com/?search=gap
 	*/
 
+
 body {
+	width: 100%;
 	/* '*' Sätter en standardfont. "Backup": sans-serif.  */
 	font-family: "Titillium Web", sans-serif;
 	font-weight: 400;
@@ -22,7 +24,10 @@ body {
 	margin: 0; /* ^^^ */
 	color: var(--primary-color); /*Färg på texten, primary-color är en blå färg. */
 	display: grid; /*Stor-griddet för varje sida*/
-	overflow-x: hidden; /* Gömmer horizontella scrollbaren */
+}
+
+html, body {
+	overflow-x: hidden; /* Gömmer horizontella scrollbaren. Sidan fungerar utan dess funktion */
 }
 
 /*Headern för alla sidor*/
@@ -157,7 +162,7 @@ footer li:hover {
 
 /*Enkel Allokering utav utrymme för innehåll*/
 main { /*En main per sida, mellan footer och header*/
-	width: 100vw; /*Tar upp hela bredden av sidan*/
+	width: 99.5vw; /*Tar upp hela bredden av sidan*/
 	margin-top: 30px; /*Mellanrum från headern*/
 	margin-bottom: 30px; /*Mellanrum till footern*/
 	gap: 20px; /*Mellanrum mellan sektionerna*/
@@ -167,7 +172,7 @@ main { /*En main per sida, mellan footer och header*/
 }
 
 section {/*En sektion,"mini-behållare" i main */
-	padding: 10px; /*Lite padding för att inte texten ska vara för nära kanten*/
+	padding: 20px; /*Lite padding för att inte texten ska vara för nära kanten*/
 	width: 500px; /*Bredd på sektionen, 500px är en bra bredd för text, kollapsar om 2 x width (två sektioner till en) + margins är under skärmbredden*/
 	height: fit-content; /*Tar så mycket plats som det behövs, inte mer. */
 	min-height: 700px; /*Minsta höjd på sektionen, 700px är en bra höjd för att inte sektionen ska bli för liten*/
@@ -397,7 +402,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 }
 
 .inner_form input:invalid, .inner_form textarea:invalid { /*Radioknapparna i inner_form, 2rem storleks radioknappar*/
-	text-decoration: rgb(255, 168, 168) underline;
+	text-decoration: rgb(255, 217, 217) underline;
 }
 
 .inner_form input[type="checkbox"] { /*Radioknapparna får höjden (därav storleken) 2rem*/
@@ -527,7 +532,7 @@ dt { /*Historia.html använder dd, med dt & dl. Sätter enkla egenskaper för l�
 }
 
 dd { /*Se ovan. Sätter font-size på dd'n, den faktiska texten */
-	font-size: 1.3em;
+	font-size: 1.1em;
 }
 
 figcaption { /*Figcaption, text under bilder*/
