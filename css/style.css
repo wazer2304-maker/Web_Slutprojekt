@@ -585,3 +585,7 @@ legend { /*Formulärtexten "Vad är din anknytning till FIFA?", 1.6ch och "tjock
 	font-size: 1.6ch;
 	font-weight: bold;
 }
+
+audio {
+	width: 100%;
+}
