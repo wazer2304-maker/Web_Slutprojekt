@@ -162,7 +162,7 @@ footer li:hover {
 
 /*Enkel Allokering utav utrymme för innehåll*/
 main { /*En main per sida, mellan footer och header*/
-	width: 99.5vw; /*Tar upp hela bredden av sidan*/
+	width: 100vw; /*Tar upp hela bredden av sidan*/
 	margin-top: 30px; /*Mellanrum från headern*/
 	margin-bottom: 30px; /*Mellanrum till footern*/
 	gap: 20px; /*Mellanrum mellan sektionerna*/
