@@ -8,13 +8,14 @@
 	https://caniuse.com/?search=var()
 	https://caniuse.com/?search=%3Aroot
 
-	Vissa blir även sura på gap.
+	Vissa blir sura även på gap.
 	https://caniuse.com/?search=gap
 	*/
 
 
-body {
+body { /*Grundreglerna för bodyn som varje sida har*/
 	width: 100%;
+	min-height: 100vh; /*Sidan tar som MINST upp hela skärmen. Den kan annars expandera till att ta upp mer*/
 	/* '*' Sätter en standardfont. "Backup": sans-serif.  */
 	font-family: "Titillium Web", sans-serif;
 	font-weight: 400;
@@ -38,7 +39,7 @@ header {
 	border-radius: 0 0 15px 15px; /*Rundar av hörnen på header, 15px på botten (vänster & höger) */
 }
 
-header h1 { /*H1 i header, färgen måste ändras i a då a är inuti h1. */
+header > ul > li > a { /*H1 i header, färgen måste ändras i a då a är inuti h1. */
 	border-bottom: 1px solid var(--primary-color); /*Blå linje under h1:a, primary-color är en blå färg, snyggt.*/
 	width: fit-content; /*Tar så mycket plats som det behövs, inte mer. */
 	font-size: 3rem; /*Storlek på texten, 3rem är 3 gånger större än standardstorlek*/
@@ -46,9 +47,6 @@ header h1 { /*H1 i header, färgen måste ändras i a då a är inuti h1. */
 	padding: 2px; /*Lite padding för att inte texten ska vara för nära linjen*/
 	font-weight: bold; /*Tjock text, bold*/
 	text-align: right; /*Texten i h1:a är högerjusterad mot knapparna*/
-}
-
-h1 a{ /*H1:a i header, länk till index.html*/
 	text-decoration: none; /*Tar bort underline (från a)*/
 	color: var(--primary-color); /*Färg på texten, fixar från a's vanliga färg*/
 }
