@@ -24,32 +24,18 @@ body {
 	margin: 0; /* ^^^ */
 	color: var(--primary-color); /*Färg på texten, primary-color är en blå färg. */
 	display: grid; /*Stor-griddet för varje sida*/
-}
-
-html, body {
+	grid-template-columns: 1;
+	grid-template-rows: auto auto auto;
 	overflow-x: hidden; /* Gömmer horizontella scrollbaren. Sidan fungerar utan dess funktion */
 }
+
 
 /*Headern för alla sidor*/
 header {
 	display: grid; /*Grid för header, strukturerar upp h1:an och de tre länkarna*/
 	background: var(--secondary-color); /*Bakgrundsfärg på header, nästan vit*/
 	box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em, rgba(90, 125, 188, 0.05) 0 0.25em 1em; /*Mycket liten skugga på header*/
-	-webkit-border-radius: 0 0 15px 15px;
-	-moz-border-radius: 0 0 15px 15px;
-	-ms-border-radius: 0 0 15px 15px;
-	-o-border-radius: 0 0 15px 15px;
 	border-radius: 0 0 15px 15px; /*Rundar av hörnen på header, 15px på botten (vänster & höger) */
-}
-
-header ul { /*Ul i header, för att få länkarna i en kollapserbar rad*/
-	display: flex;
-	flex-wrap: wrap; /*Wrappar vid litet utrymme. Kan kollapsa till litet format.*/
-	list-style-type: none; /*Tar bort punkterna från ul:n i naven*/
-	justify-content: center; /*Centrerar länkarna i naven*/
-	margin: 0; /*Tar bort marginen som finns som standard*/
-	padding: 0; /*Tar bort paddingen som finns som standard*/
-	column-gap: 10vw; /*Mellanrum mellan länkarna i naven, 10vw går ner med mindre skärm = anpassning*/
 }
 
 header h1 { /*H1 i header, färgen måste ändras i a då a är inuti h1. */
@@ -67,11 +53,18 @@ h1 a{ /*H1:a i header, länk till index.html*/
 	color: var(--primary-color); /*Färg på texten, fixar från a's vanliga färg*/
 }
 
-header nav ul { /*Ul i header, för att få länkarna i en kollapserbar rad. Kan kollapsas ytterligare än bara headerns kollapsering.*/
+header ul { /*För de två (2) Ul i header, gör så att det är två flexes som kollapsar*/
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	column-gap: 20px; /*Mellanrum mellan länkarna i naven*/
+	flex-wrap: wrap; /*Wrappar vid litet utrymme. Kan kollapsa till litet format.*/
+	list-style-type: none; /*Tar bort punkterna från ul:n i naven*/
+	justify-content: center; /*Centrerar länkarna i naven*/
+	margin: 0; /*Tar bort marginen som finns som standard*/
+	padding: 0; /*Tar bort paddingen som finns som standard*/
+	column-gap: 10vw; /*Mellanrum mellan länkarna i naven, 10vw går ner med mindre skärm = anpassning*/
+}
+
+header nav ul { /*De inre ul inuti naven inuti den större ul i header får mindre column-gap än standard. */
+	column-gap: 20px;
 }
 
 header nav li { /*li är de visuella knapparna // länkarna*/
@@ -83,10 +76,6 @@ header nav li { /*li är de visuella knapparna // länkarna*/
 	border-bottom: 0; /*Tar bort bottenlinjen, knappen har borders  på alla andra ställen.*/
 	font-size: 3.5ex; /*Storlek på texten i länkarna*/
 	text-align: center; /*Centrerar texten horisontellt*/
-	-webkit-border-radius: 5px; /*Rundar av hörnen på knapparna, 5px på alla hörn*/
-	-moz-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-o-border-radius: 5px;
 	border-radius: 5px;
 }
 
@@ -94,22 +83,6 @@ header nav li:hover { /*Header-länkarna får en blå högersida som smyger fram
 	box-shadow: 3px 0;
 	transition-duration: 0.2s;
 }
-
-@media (max-width: 800px) { /*Media query för att anpassa till mindre skärmar, 800px är en bra gräns för detta*/
-	header nav li { /*Ändrar bredd & höjd på knapparna för att passa mindre skärmar*/
-		width: 4em;
-		height: 2.5em;
-	}
-	header nav ul { /*Sänker column-gap för att passa mindre skärmar*/
-		gap: 10px;
-	}
-}
-
-header nav li a { /*Ändrar färg & tar bort underline för länkarna*/
-	text-decoration: none;
-	color: var(--primary-color);
-}
-
 
 /*FOOTERN FÖR ALLA SIDOR   */
 footer {
@@ -131,7 +104,7 @@ footer h3 { /*"FIFA 2024 - texten, 1.8em storlek i copyright-arean, BOLD (tjock 
 	text-align: left; /*Texten är åt vänster med 40px margin från griddet = Snyggt när det krymper*/
 }
 
-footer > ul { /*Ul i footer, för att få social-knapparna i en kollapserbar rad*/
+footer > .social { /*Ul i footer, för att få social-knapparna i en kollapserbar rad*/
 	grid-area: social; /*Får sin plats i footer */
 	justify-content: flex-end;
 	display: flex; /*Flexbox för att få knapparna i en rad*/
@@ -140,7 +113,7 @@ footer > ul { /*Ul i footer, för att få social-knapparna i en kollapserbar rad
 }
 
 
-footer li { /*Social-knapparna : höjd och bredd 3 em, helt runda*/
+footer a { /*Social-knapparna : höjd och bredd 3 em, helt runda*/
 	width: 3em;
 	height: 3em;
 	border-radius: 100%;
@@ -148,7 +121,7 @@ footer li { /*Social-knapparna : höjd och bredd 3 em, helt runda*/
 	margin: 1vw;/*Mellanrumn så att de inte är så nära varandra*/
 }
 
-footer li:hover {
+footer a:hover {
 	/*När social-knapparna hovras på: skugga, större & allt på 0.5 sekund*/
 	box-shadow: rgba(50, 50, 50, 0.7) 1px 3px 2px; /*Skugga*/
 	transform: scale(1.1); /*Större knappar*/
@@ -177,14 +150,10 @@ section {/*En sektion,"mini-behållare" i main */
 	height: fit-content; /*Tar så mycket plats som det behövs, inte mer. */
 	min-height: 700px; /*Minsta höjd på sektionen, 700px är en bra höjd för att inte sektionen ska bli för liten*/
 	background-color: var(--secondary-color); /*Bakgrundsfärg på sektionen, nästan vit*/
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-ms-border-radius: 4px;
-	-o-border-radius: 4px;
 	border-radius: 4px; /*Rundar av hörnen på sektionen, 4px på alla hörn*/
 }
 
-p:target::before, h2:target::before, dt:target::before { /*När en sida klickas igen, kommer en pil fram. Detta är för att ge en bättre upplevelse. */
+p:target::before, h2:target::before, dt:target::before { /*När en sida klickas igen, kommer en pil fram.  */
 	content: "► "; /*Pil-tecknet förtydligar att man är på den sidan man är på, om man skulle få för sig att tro något annat*/
 	color: var(--primary-color); /*En "pil" i primary color framför texten, scrollar även ner till stycket*/
 } /*p, h2, dt används i de olika sidorna för denna funktionen*/
@@ -205,10 +174,6 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 
 .top_img_split img { /*Bilden i top_img_split, 200px bred, rundade hörn, se lander.html för varför just dessa höjder*/
 	width: 200px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-ms-border-radius: 10px;
-	-o-border-radius: 10px;
 	border-radius: 10px; /*Rundar smått av hörnen på bilden, 10px på alla hörn*/
 }
 
@@ -228,10 +193,6 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	height: fit-content;
 	grid-column: span 2; /*Tar upp två kolumner, alltså hela bredden på gridden i sektionen*/
 	background: linear-gradient(rgb(212, 212, 212), rgb(233, 233, 233)); /*Bakgrundsfärg på länkarna, grå-vit gradient*/
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-ms-border-radius: 10px;
-	-o-border-radius: 10px;
 	border-radius: 10px; /*Rundar av hörnen på länkarna, 10px på alla hörn*/
 }
 
@@ -292,19 +253,6 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
                        0 0);
 }
 
-@media (max-width: 1100px) { /*Media query för att anpassa till mindre/mellan skärmar, 1100px är en bra gräns för just denna sidan*/
-	.banner_section img {
-		display: none; /*Döljer bilden på mindre skärmar, för att inte ta upp för mycket plats*/
-	}
-	.banner_section {
-		grid-template-columns: auto auto; /*Två kolumner, 1 fraktion av skärmen för : titel, text*/
-	}
-	.banner_section p {
-		font-size: 1.5em; /*Ändrar textstorlek & utrymmet för texten (från 1.2em) */
-		margin:10px;
-	}
-}
-
 .banner_section h2 { /*H2 i banner_section, 2em storlek, rubriken för första banner_section*/
 	font-size: 2em;
 	margin: 5vmin; /*Mellanrum från texten till kanten, 5vmin är en bra storlek för detta, krymper automatiskt med skärmstorlek*/
@@ -340,80 +288,50 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	margin: 5px; /*Litet mellanrum mellan delarna*/
 	border: 2px solid rgb(0,0,0); /*Fallback*/
 	border: 2px solid rgba(0,0,0,0.1); /*En mycket liten border på delarna, snyggt*/
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
-	-ms-border-radius:5px;
-	-o-border-radius:5px;
 	border-radius:5px; /*Rundar av hörnen på delarna, 5px på alla hörn*/
 }
 
 .form_section { /*Klass för den större containern (sektionen) till formuläret i form.html */
-	width: 60vw; /*Bredd på sektionen, 60vw är en bra bredd för formuläret*/
 	border-left: 10px solid var(--primary-color); /*Tjock blå vänsterkantslinje för att det är väldigt snyggt*/
 	background: linear-gradient(rgb(255, 255, 255), rgb(228, 232, 233)); /*Bakgrundsfärg på sektionen, vit-grå gradient, fade:ar ut*/
-	-webkit-border-radius: 10px 10px 100px 10px;
-	-moz-border-radius: 10px 10px 100px 10px;
-	-ms-border-radius: 10px 10px 100px 10px;
-	-o-border-radius: 10px 10px 100px 10px;
 	border-radius: 10px 10px 100px 10px; /*Rundar av hörnen på sektionen, 10px på alla hörn, 100px på botten vänster där gradienten är som mest utblandad med background*/
-}
-
-@media (max-width: 800px) { /*Media query för att anpassa till mindre skärmar, 800px är en bra gräns för detta*/
-	.form_section {
-		width: 100vw; /*Formuläret upp hela bredden av sidan*/
-		border: none; /*Tar bort vänsterkantslinjen på mindre skärmar, ser fult ut med en kantlinje utan något utrymme*/
-	}
 }
 
 .form_section h2 { /*H2 i form_section, rubriken för formuläret*/
 	text-align: center;
 }
 
-.inner_form { /*Den inre containern som innehåller de faktiska form-delarna*/
-	display: grid; /*Grid för att strukturera upp formuläret*/
-	justify-content: center;
-	font-size: 1.3em; /*Storlek på texten i formuläret*/
-	gap: 15px; /*Mellanrum mellan formulärsdelarna*/
-}
-
-.inner_form input, .inner_form textarea { /*Input och textarea i inner_form, 1em storlek*/
+form input, form textarea { /*Input och textarea i inner_form, 1em storlek*/
 	font-size: 1em;
 	padding: 10px; /*Lite padding för att inte texten ska vara för nära kanten*/
-	width: 60vw; /*Bredd på input och textarea, 60vw är en bra bredd för formulärsdelarna*/
+	margin: 10px;
+	width: 50%; /*Bredd på input och textarea, 60vw är en bra bredd för formulärsdelarna*/
 	min-width: 100px; /*Minsta bredd på input och textarea, 100px är en bra minsta bredd för formulärsdelarna (när skärmen blir mindre)*/
 	height: 6vh; /*Höjd på input och textarea*/
 	border: 1px double var(--tertiary-color);
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-ms-border-radius: 10px;
-	-o-border-radius: 10px;
 	border-radius: 10px; /*Rundar av hörnen på input och textarea, 10px på alla hörn*/
 	resize: none; /*Förhindrar att textarea kan ändras i storlek, istället föredras scrollning*/
 }
 
-.inner_form input:valid, .inner_form textarea:valid { /*När input och textarea är ifyllda, blir de grönmarkerade, snyggt!*/
+form input:valid, form textarea:valid { /*När input och textarea är ifyllda, blir de grönmarkerade, snyggt!*/
 	border-left: 5px solid hsl(120, 67.1%, 27.5%); /*Grön vänsterkantslinje på ifyllda formulärsdelar*/
-	-webkit-border-radius: 0 10px 10px 0;
-	-moz-border-radius: 0 10px 10px 0;
-	-ms-border-radius: 0 10px 10px 0;
-	-o-border-radius: 0 10px 10px 0;
 	border-radius: 0 10px 10px 0; /*Gör hörnen kantiga igen på ifyllda formulärsdelar, snyggt med grön kantlinje*/
 }
 
-.inner_form input:invalid, .inner_form textarea:invalid { /*Radioknapparna i inner_form, 2rem storleks radioknappar*/
+form input:invalid, form textarea:invalid { /*Radioknapparna i inner_form, 2rem storleks radioknappar*/
 	text-decoration: rgb(255, 217, 217) underline;
 }
 
-.inner_form input[type="checkbox"] { /*Radioknapparna får höjden (därav storleken) 2rem*/
+form input[type="checkbox"] { /*Radioknapparna får höjden (därav storleken) 2rem*/
 	height: 2rem;
 }
 
 
-.inner_form textarea { /*Textarea i inner_form, 30vh hög, ska vara högre än andra delar.*/
+form textarea { /*Textarea i inner_form, 30vh hög, ska vara högre än andra delar.*/
 	height: 30vh;
 }
 
-.inner_form button { /*Knappen i inner_form, 1.3em storleks fyllig knapp med vit text, blå bakgrund, rundade hörn*/
+form button { /*Knappen i inner_form, 1.3em storleks fyllig knapp med vit text, blå bakgrund, rundade hörn*/
 	font-size: 1.3em;
 	margin-top: 50px; /*Mellanrum från ovan till knappen*/
 	width: 40vw; /*Bredd på knappen, 40vw är en fin bredd för knappen*/
@@ -423,20 +341,12 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	border: none; /*Tar bort border från knappen*/
 	background: var(--primary-color);
 	color: white;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-ms-border-radius: 10px;
-	-o-border-radius: 10px;
 	border-radius: 10px;
 }
 
 section img { /*Generiskt för bilderna i sektionerna*/
 	box-shadow: 0 5px 5px rgb(165, 165, 165); /*Skugga på bilderna, snyggt och stilrent, kan tas bort av klassen no_shadow */
 	width: 98%; /*Bredd på bilderna, 98% är en bra bredd för bilderna för att ge lite avstånd till kanten*/
-	-webkit-border-radius:6px;
-	-moz-border-radius:6px;
-	-ms-border-radius:6px;
-	-o-border-radius:6px;
 	border-radius:6px; /*Rundar av hörnen på bilderna, 6px på alla hörn*/
 }
 
@@ -465,12 +375,6 @@ iframe { /*Iframe (youtube) i argentina.html*/
 	}
 }
 
-@media (max-width: 1000px) { /*Tar bort animationen om skärmen är liten : Ser inte rymligt ut annars. */
-	iframe {
-		animation: none;
-	}
-}
-
 .spelare_img { /*Sido-captionen i spelare.html*/
 	width: 90%; /*Tar upp 90% av bredden av sektionen*/
 	display: flex; /*Flexbox för att kunna få texten bredvid, inte under, bilderna*/
@@ -494,30 +398,30 @@ iframe { /*Iframe (youtube) i argentina.html*/
 	grid-column: span 2;
 }
 
-#mål { /*Tabellen över spelare & mål (spelare.html) */
+.mål { /*Tabellen över spelare & mål (spelare.html) */
 	width: 100%; /*Tar upp hela bredden av sektionen*/
 	border-collapse: collapse; /*Tar bort mellanrummet mellan cellerna i tabellen*/
 	border: 1px solid var(--primary-color); /*En blå border runt tabellen, snyggt och stilrent*/
 }
 
-#mål td, #mål th { /*Datacellerna och headcellerna i tabellen (spelare.html) */
+.mål td, .mål th { /*Datacellerna och headcellerna i tabellen (spelare.html) */
 	border: 1px solid var(--primary-color);
 	padding: 10px; /*Utrymme för text samt en border på 1px*/
 }
 
-#mål tr:nth-child(even) { /*Even & odd färg på table rows : zebrastriping*/
+.mål tr:nth-child(even) { /*Even & odd färg på table rows : zebrastriping*/
 	background-color: var(--secondary-color);
 }
 
-#mål tr:nth-child(odd) { /*Even & odd färg: zebrastriping*/
+.mål tr:nth-child(odd) { /*Even & odd färg: zebrastriping*/
 	background-color: var(--tertiary-color);
 }
 
-#mål tr:hover { /*När muspekaren hålls på, byter färg för läslighet*/
+.mål tr:hover { /*När muspekaren hålls på, byter färg för läslighet*/
 	background-color: var(--quaternary-color);
 }
 
-#mål thead th, #mål tfoot th, #mål tfoot td { /*Blå bakgrund på table head & table foot : ser snyggt ut. Matchar med vit färg för läslighet*/
+.mål thead th, .mål tfoot th, .mål tfoot td { /*Blå bakgrund på table head & table foot : ser snyggt ut. Matchar med vit färg för läslighet*/
 	background-color: var(--primary-color);
 	color: white;
 	border: 1px solid rgb(0, 0, 0);
@@ -547,10 +451,6 @@ figcaption { /*Figcaption, text under bilder*/
 	color: white; /*Vit text*/
 	width: fit-content; /*Krymper i sida så att den inte tar upp 100%*/
 	padding: 10px; /*Fylligare knapp*/
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-o-border-radius: 5px;
 	border-radius: 5px; /*Rundad knapp*/
 }
 
@@ -588,4 +488,42 @@ legend { /*Formulärtexten "Vad är din anknytning till FIFA?", 1.6ch och "tjock
 
 audio { /*Audio tar upp sin bredd */
 	width: 100%;
+}
+
+header nav li a { /*Ändrar färg & tar bort underline för länkarna*/
+	text-decoration: none;
+	color: var(--primary-color);
+}
+
+@media (max-width: 1100px) { /*Media query för att anpassa till mindre/mellan skärmar, 1100px är en bra gräns för just denna sidan*/
+	.banner_section img {
+		display: none; /*Döljer bilden på mindre skärmar, för att inte ta upp för mycket plats*/
+	}
+	.banner_section {
+		grid-template-columns: auto auto; /*Två kolumner, 1 fraktion av skärmen för : titel, text*/
+	}
+	.banner_section p {
+		font-size: 1.5em; /*Ändrar textstorlek & utrymmet för texten (från 1.2em) */
+		margin:10px;
+	}
+}
+
+@media (max-width: 1000px) { /*Tar bort animationen om skärmen är liten : Ser inte rymligt ut annars. */
+	iframe {
+		animation: none;
+	}
+}
+
+@media (max-width: 800px) { /*Media query för att anpassa till mindre skärmar, 800px är en bra gräns för detta*/
+	.form_section {
+		width: 100vw; /*Formuläret upp hela bredden av sidan*/
+		border: none; /*Tar bort vänsterkantslinjen på mindre skärmar, ser fult ut med en kantlinje utan något utrymme*/
+	}
+	header nav li { /*Ändrar bredd & höjd på knapparna för att passa mindre skärmar*/
+		width: 4em;
+		height: 2.5em;
+	}
+	header nav ul { /*Sänker column-gap för att passa mindre skärmar*/
+		gap: 10px;
+	}
 }

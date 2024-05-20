@@ -35,9 +35,8 @@
       <main>
          <section class="wide_section form_section">
             <h2 id="form">Vad tycker du?</h2>
-            <div class="form_middle">
-               <form class="inner_form" method="get" action="./tack.html"> <!--Skickar till tack.html med metod get. inner_form är css-klass.-->
-                  <label for="namn">Namn</label>
+               <form method="get" action="./tack.html"> <!--Skickar till tack.html med metod get. inner_form är css-klass.-->
+                  <label for="namn">Namn</label><br>
                   <input type="text" id="namn" name="namn" placeholder="Namn Efternamn" required> <!--Nödvändig namn-spalt-->
                   <fieldset> <!--Fieldset med radioknappar-->
                   <legend>Vad är din anknytning till FIFA?</legend>
@@ -51,7 +50,20 @@
                   <label for="annat">Annat</label>
                   </fieldset>
 
+                  <fieldset>
+                     <legend>Välj intressen</legend>
+                     <div>
+                       <input type="checkbox" id="fifa" name="intresse" value="fifa" checked />
+                       <label for="fifa">Fifa</label>
+                     </div>
+                     <div>
+                       <input type="checkbox" id="andra" name="intresse" value="andra" />
+                       <label for="andra">Andra Ligor</label>
+                     </div>
+                   </fieldset>
+
                   <label for="lag">Välj favoritlag</label> <!--Dropdown-meny med lag.-->
+                  <br>
                   <select name="favoritlag" id="lag">
                      <option value="sverige">Sverige</option>
                      <option value="england">England</option>
@@ -69,24 +81,28 @@
                   </select>
 				  <br>
                <!--Diverse andra fält-->
-                  <label for="email">E-post</label>
-                  <input type="email" id="email" name="email" placeholder="namn.efternamn@email.se" required>
+                  <label for="email">E-post</label><br>
+                  <input type="email" id="email" name="email" placeholder="namn.efternamn@email.se" required><br>
 
-                  <label for="telefon">Telefonnummer</label>
-                  <input type="tel" id="telefon" name="telefon" pattern="[0-9]{10}" placeholder="0123456789" required>
-                  <label for="födelsedatum">Födelsedatum</label>
-                  <input type="date" id="födelsedatum" name="födelsedatum" required>
-                  <label for="meddelande">Meddelande</label>
-                  <textarea id="meddelande" name="meddelande" placeholder="..." required></textarea>
+                  <label for="telefon">Telefonnummer</label><br>
+                  <input type="tel" id="telefon" name="telefon" pattern="[0-9]{10}" placeholder="0123456789" required><br>
+
+                  <label for="pass">Lösennummer</label><br>
+                  <input type="password" id="pass" name="pass" placeholder="*********" required><br>
+
+                  <label for="födelsedatum">Födelsedatum</label><br>
+                  <input type="date" id="födelsedatum" name="födelsedatum" required><br>
+
+                  <label for="meddelande">Meddelande</label><br>
+                  <textarea id="meddelande" name="meddelande" placeholder="..." required></textarea><br>
+
                   <button type="submit">Skicka</button>
                </form>
-            </div>
          </section>
       </main>
       <footer>
          <h3 aria-hidden="true">FIFA ©2024</h3><!--Förstör upplevelsen om talsyntes ska läsa upp onödig footer, mer dekorativ text än funktionell.-->
-         <ul>
-            <li>
+         <div class="social">
                <a title="Dela på Instagram" href="https://www.instagram.com">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                      <!--SVG av Instagram med länk-->
@@ -96,8 +112,6 @@
                         />
                   </svg>
                </a>
-            </li>
-            <li>
                <a title="Dela på Facebook" href="https://www.facebook.com">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                      <!--SVG av Facebook med länk-->
@@ -107,8 +121,6 @@
                         />
                   </svg>
                </a>
-            </li>
-            <li>
                <a title="Dela på Twitter" href="https://www.twitter.com">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                      <!--SVG av X med länk-->
@@ -118,8 +130,7 @@
                         />
                   </svg>
                </a>
-            </li>
-         </ul>
+         </div>
       </footer>
    </body>
 </html>
