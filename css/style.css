@@ -51,8 +51,11 @@ header > ul > li > a { /*H1 i header, färgen måste ändras i a då a är inuti
 	padding: 2px; /*Lite padding för att inte texten ska vara för nära linjen*/
 	font-weight: bold; /*Tjock text, bold*/
 	text-align: right; /*Texten i h1:a är högerjusterad mot knapparna*/
-	text-decoration: none; /*Tar bort underline (från a)*/
+}
+
+header a {
 	color: var(--primary-color); /*Färg på texten, fixar från a's vanliga färg*/
+	text-decoration: none; /*Tar bort underline (från a), gäller för alla a, även 3 knapparna vilket innebär separat regel*/
 }
 
 header ul { /*För de två (2) Ul i header, skapar alltså två olika flexes som var för sig kollapsar*/
@@ -490,13 +493,8 @@ audio { /*Audio tar upp sin allokerade bredd */
 	width: 100%;
 }
 
-header nav li a { /*Ändrar färg & tar bort underline för länkarna*/
-	text-decoration: none;
-	color: var(--primary-color);
-}
-
 .tack_bild {
-	/*Tummen-uppbilden får 25vw storlek,centrerad påskärmen,funkar för både mobil & dator*/
+	/*Tummen-uppbilden (tack.html) får 30vw storlek,centrerad påskärmen,funkar för både mobil & dator, lite filter för att ändra färg*/
 	width: 30vw;
 	margin-left: auto;
 	margin-right: auto;
