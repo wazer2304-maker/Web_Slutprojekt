@@ -3,14 +3,16 @@
 	--secondary-color: #f9f9f9;
 	--tertiary-color: #e5e5e5;
 	--quaternary-color: #d5d5d5;
-} /*Vissa validatorer//linters ser --variabelnamn som tomrum vilket innebär att den ser :root som tom. 
-    Regeln fungerar oavsett validatorernas åsikt.
+}
+/*
+Vissa validatorer//linters ser --variabelnamn som tomrum vilket innebär att den ser :root som tom.
+    Regeln fungerar dock.
 	https://caniuse.com/?search=var()
 	https://caniuse.com/?search=%3Aroot
 
-	Vissa blir sura även på gap.
+	Vissa blir skeptiska även på gap.
 	https://caniuse.com/?search=gap
-	*/
+*/
 
 
 body { /*Grundreglerna för bodyn som varje sida har*/
@@ -21,7 +23,7 @@ body { /*Grundreglerna för bodyn som varje sida har*/
 	font-weight: 400;
 	font-style: normal;
 	background-color: rgb(228, 232, 233); /*Bakgrundsfärg på hela bodyn, den man ser bakom sections*/
-	padding: 0; /*Tar bort paddingen som finns som standard, gör så att saker kan hamna tätt intill fönsterkanten*/
+	padding: 0; /*Tar bort paddingen som är inheritad, gör så att saker kan hamna tätt intill fönsterkanten*/
 	margin: 0; /* ^^^ */
 	color: var(--primary-color); /*Färg på texten, primary-color är en blå färg. */
 	display: grid; /*Stor-griddet för varje sida*/
@@ -55,8 +57,8 @@ header ul { /*För de två (2) Ul i header, skapar alltså två olika flexes som
 	flex-wrap: wrap; /*Wrappar vid litet utrymme. Kan kollapsa till litet format.*/
 	list-style-type: none; /*Tar bort punkterna från ul:n i naven*/
 	justify-content: center; /*Centrerar länkarna i naven*/
-	margin: 0; /*Tar bort marginen som finns som standard*/
-	padding: 0; /*Tar bort paddingen som finns som standard*/
+	margin: 0; /*Tar bort marginen som är inheritad*/
+	padding: 0; /*Tar bort paddingen som är inheritad*/
 	column-gap: 10vw; /*Mellanrum mellan länkarna i naven, 10vw går ner med mindre skärm = anpassning*/
 }
 
@@ -65,11 +67,11 @@ header nav ul { /*De inre ul inuti naven inuti den större ul i header får mind
 }
 
 header nav li { /*li är de visuella knapparna // länkarna       nav li då endast ul listan i naven ska påverkas*/
-	width: 5em; 
+	width: 5em;
 	height: 3em; /*Bredd & höjd*/
 	margin-bottom: 5px; /*Mellanrum mellan knapparna och bottnen, för snygghet*/
 	line-height: 3em; /*Centrerar texten vertikalt med en height på 3em*/
-	border: 1px solid rgb(210,220,220); 
+	border: 1px solid rgb(210,220,220);
 	border-bottom: 0; /*Tar bort bottenlinjen, knappen har borders  på alla andra ställen.*/
 	font-size: 3.5ex; /*Storlek på texten i länkarna*/
 	text-align: center; /*Centrerar texten horisontellt*/
@@ -84,7 +86,7 @@ header nav li:hover { /*Header-länkarna får en blå högersida som smyger fram
 /*FOOTERN FÖR ALLA SIDOR   */
 footer {
 	grid-area: footer; /*Får sin plats i griden*/
-	box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px, 
+	box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px,
 		rgba(10, 37, 64, 0.35) 0 -2px 6px 0 inset; /*Skugga på footer, snyggt och stilrent. Går uppåt*/
 	color: black;
 	display: grid; /*Grid för footer, strukturerar upp texten och social-knapparna*/
@@ -111,7 +113,7 @@ footer div { /*Ul i footer, för att få social-knapparna i en kollapserbar rad*
 	justify-content: flex-end;
 	display: flex; /*Flexbox för att få knapparna i en rad*/
 	flex-wrap: wrap; /*Wrappar vid litet utrymme. Kan kollapsa till litet format.*/
-	padding: 0; /*Tar bort paddingen som finns som standard*/
+	padding: 0; /*Tar bort paddingen som finns inheritad*/
 }
 
 
@@ -140,7 +142,7 @@ main { /*En main per sida, mellan footer och header*/
 	display: flex; /*Flexbox för att kunna kollapsa ihop sektionerna till en vertikal rad vid små skärmar*/
 	flex-wrap: wrap; /*Wrappar vid litet utrymme. Kan kollapsa till litet format.*/
 	justify-content: center; /*Centrerar sektionerna*/
-	grid-area: main; /*Får sin plats i griden*/
+	grid-area: main; /*Får sin plats i body-griden*/
 }
 
 section {/*En sektion,"mini-behållare" i main */
@@ -226,7 +228,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 .banner_section { /*Den stora containern (sektionen) i index.html som sträcker sig över hela skrämen breddvis */
 	width: 100vw; /*Tar upp hela bredden av sidan*/
 	min-height: 320px; /*320px sänker min-height från de andra section-reglerna, kan nu bli mindre. */
-	padding: 0; /*Tar bort paddingen som finns som standard*/
+	padding: 0; /*Tar bort paddingen som är inheritad*/
 	display: grid; /*Grid för att strukturera upp bilden och introduktionstextenerna*/
 	grid-template-columns: 25vw auto auto auto; /*Fyra kolumner, 5, auto, 6 och 2 fraktioner av skärmen för : bild, titel, text, utrymme*/
 }
