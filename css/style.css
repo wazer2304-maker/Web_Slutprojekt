@@ -22,7 +22,7 @@ body { /*Grundreglerna för bodyn som varje sida har*/
 
 	/* '*' Sätter en standardfont. "Backup": sans-serif.  */
 	font-family: "Titillium Web", sans-serif;
-	font-weight: 400;
+	font-weight: 400; /*Normal text, 400 är standardvikt*/
 	font-style: normal;
 	background-color: rgb(228, 232, 233); /*Bakgrundsfärg på hela bodyn, den man ser bakom sections*/
 	padding: 0; /*Tar bort paddingen som är inheritad, gör så att saker kan hamna tätt intill fönsterkanten*/
@@ -38,7 +38,6 @@ body { /*Grundreglerna för bodyn som varje sida har*/
 /*Headern för alla sidor*/
 header {
 	grid-area: header; /*Får sin plats i body-griden*/
-	display: grid; /*Grid för header, strukturerar upp h1:an och de tre länkarna*/
 	background: var(--secondary-color); /*Bakgrundsfärg på header, nästan vit*/
 	box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em, rgba(90, 125, 188, 0.05) 0 0.25em 1em; /*Mycket liten skugga på header*/
 	border-radius: 0 0 15px 15px; /*Rundar av hörnen på header, 15px på botten (vänster & höger) */
@@ -63,8 +62,8 @@ header ul { /*För de två (2) Ul i header, skapar alltså två olika flexes som
 	flex-wrap: wrap; /*Wrappar vid litet utrymme. Kan kollapsa till litet format.*/
 	list-style-type: none; /*Tar bort punkterna från ul:n i naven*/
 	justify-content: center; /*Centrerar länkarna i naven*/
-	margin: 0; /*Tar bort marginen som är inheritad*/
-	padding: 0; /*Tar bort paddingen som är inheritad*/
+	margin: 0; /*Tar bort marginen som är standard*/
+	padding: 0; /*Tar bort paddingen som är standard*/
 	column-gap: 10vw; /*Mellanrum mellan länkarna i naven, 10vw går ner med mindre skärm = anpassning*/
 }
 
