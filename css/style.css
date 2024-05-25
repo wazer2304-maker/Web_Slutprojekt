@@ -152,10 +152,10 @@ section {/*En sektion,"mini-behållare" i main */
 	border-radius: 4px; /*Rundar av hörnen på sektionen, 4px på alla hörn*/
 }
 
-p:target::before, h2:target::before, dt:target::before, h1:target::before { /*När en sida klickas igen, kommer en pil fram.  */
+h1:target::before { /*När en sida klickas igen, kommer en pil fram.  */
 	content: "► "; /*Pil-tecknet förtydligar att man är på den sidan man är på, om man skulle få för sig att tro något annat*/
 	color: var(--primary-color); /*En "pil" i primary color framför texten, scrollar även ner till stycket*/
-} /*p, h2, dt används i de olika sidorna för denna funktionen*/
+} /*h1 används i de olika sidorna för denna funktionen*/
 
 section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för standardtext*/
 	font-size: 1.4em;
@@ -165,7 +165,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	display: grid; /*Grid för att strukturera upp bilden och texten, inga areor benämns , mycket versatil*/
 }
 
-.top_img_split h2, .top_img_split h1 { /*H2 i top_img_split, 2.5em storlek, rubriken för sektionen*/
+.top_img_split h2, .top_img_split h1 { /*H2, H1 i top_img_split, 2.5em storlek, rubriken för sektionen*/
 	font-size: 2.5em;
 	margin: 25px; /*Mellanrum från texten till bilden*/
 	text-align: center; /*Centrerar texten horisontellt*/
@@ -254,7 +254,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 
 .banner_section h2, .banner_section h1 { /*H2 i banner_section, 2em storlek, rubriken för första banner_section*/
 	font-size: 2em;
-	margin: 5vmin; /*Mellanrum från texten till kanten, 5vmin är en bra storlek för detta, krymper automatiskt med skärmstorlek*/
+	padding: 1vmin; /*Mellanrum från texten till kanten, 5vmin är en bra storlek för detta, krymper automatiskt med skärmstorlek*/
 }
 
 .banner_section p { /*Texten i banner_section, 2.4ch storlek*/
