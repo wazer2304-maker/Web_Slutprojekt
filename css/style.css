@@ -439,8 +439,8 @@ figcaption { /*Figcaption, text under bilder*/
 	text-align: center; /*Centrerad & på 1em*/
 }
 
-#lag {
-	/* i form.html. #lag är inputten för favoritlag*/
+.lag {
+	/* i form.html. .lag är inputten för favoritlag*/
 	background: var(--primary-color);
 	font-size: 1.2em; /*Storlek på text*/
 	color: white; /*Vit text*/
@@ -449,7 +449,7 @@ figcaption { /*Figcaption, text under bilder*/
 	border-radius: 5px; /*Rundad knapp*/
 }
 
-#lag option { /*Alternativen i dropdownen för favoritlag*/
+.lag option { /*Alternativen i dropdownen för favoritlag*/
 	background: var(--secondary-color); /*Bakgrundsfärg*/
 	color: var(--primary-color); /*Textfärg*/
 }
