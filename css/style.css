@@ -25,7 +25,6 @@ body { /*Grundreglerna för bodyn som varje sida har*/
 	margin: 0; /* ^^^ */
 	color: var(--primary-color); /*Färg på texten, primary-color är en blå färg. */
 	display: grid; /*Stor-griddet för varje sida*/
-	grid-template-columns: 1;
 	grid-template-areas: "header" "main" "footer"; /*Tre områden, en för header, en för main och en för footer*/
 	overflow-x: hidden; /* Gömmer horizontella scrollbaren. Sidan fungerar utan dess funktion */
 }
@@ -129,10 +128,6 @@ footer a:hover {
 	box-shadow: rgba(50, 50, 50, 0.7) 1px 3px 2px; /*Skugga*/
 	transform: scale(1.1); /*Större knappar*/
 	transition: 0.5s; /*0.5 sekunder för att göra det "mjukt" */
-	-webkit-transition: 0.5s;
-	-moz-transition: 0.5s;
-	-ms-transition: 0.5s;
-	-o-transition: 0.5s;
 }
 /*FOOTER*/
 
@@ -369,9 +364,12 @@ iframe { /*Iframe (youtube) i argentina.html*/
 }
 
 @keyframes glowing { /*Animation ska locka ögonen till iframen. Skymmer inte resterande innehåll eller iframen. */
-	to { /*Behövs bara to då den går tillbaka till grundegenskaper*/
+	from {
+		box-shadow: none; /*Ingen skugga från början*/
+	}
+	to { /*Box-shadow egenskaper för att rutan ska pulsera = uppmuntra til att spelas*/
 		box-shadow:
-		0 0 0 0.5em rgba(4, 0, 255, 0.15), 
+		0 0 0 0.5em rgba(4, 0, 255, 0.15),
 		0 0 0 0.2em rgba(0,0,0,0.2);/*Mycket svag genomskinlig box-shadow : "glowing" */
 	}
 }
@@ -393,10 +391,6 @@ iframe { /*Iframe (youtube) i argentina.html*/
 .spelare_img img { /*Bilderna i spelare.html ska ta upp så mycket som de behöver utav bredden & höjden, bilderna ska vara 100% */
 	width: 100%;
 	height: 100%;
-}
-
-.textbox { /*Klass för att få en textruta som tar upp 2 kolumner i ett sections-grid (spelare.html) */
-	grid-column: span 2;
 }
 
 .mål { /*Tabellen över spelare & mål (spelare.html) */
@@ -499,7 +493,6 @@ header nav li a { /*Ändrar färg & tar bort underline för länkarna*/
 
 .tack_bild { /*Tummen-upp bilden får 25vw storlek, centrerad på skärmen, funkar för både mobil & dator*/
 	width: 30vw;
-	
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
