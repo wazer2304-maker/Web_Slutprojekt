@@ -17,7 +17,9 @@ Vissa validatorer//linters ser --variabelnamn som tomrum vilket innebär att den
 
 body { /*Grundreglerna för bodyn som varje sida har*/
 	width: 100%;
-	height: 100vh;
+	height: 100%;
+	min-height: 100vh; /*Tar upp som minst hela skärmen. */
+
 	/* '*' Sätter en standardfont. "Backup": sans-serif.  */
 	font-family: "Titillium Web", sans-serif;
 	font-weight: 400;
@@ -26,15 +28,16 @@ body { /*Grundreglerna för bodyn som varje sida har*/
 	padding: 0; /*Tar bort paddingen som är inheritad, gör så att saker kan hamna tätt intill fönsterkanten*/
 	margin: 0; /* ^^^ */
 	color: var(--primary-color); /*Färg på texten, primary-color är en blå färg. */
+	overflow-x: hidden; /* Gömmer horizontella scrollbaren. Sidan fungerar utan dess funktion */
+
 	display: grid; /*Stor-griddet för varje sida*/
 	grid-template-areas: "header" "main" "footer"; /*Tre områden, en för header, en för main och en för footer*/
-	overflow-x: hidden; /* Gömmer horizontella scrollbaren. Sidan fungerar utan dess funktion */
 }
 
 
 /*Headern för alla sidor*/
 header {
-	grid-area: header; /*Får sin plats i griden*/
+	grid-area: header; /*Får sin plats i body-griden*/
 	display: grid; /*Grid för header, strukturerar upp h1:an och de tre länkarna*/
 	background: var(--secondary-color); /*Bakgrundsfärg på header, nästan vit*/
 	box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em, rgba(90, 125, 188, 0.05) 0 0.25em 1em; /*Mycket liten skugga på header*/
@@ -78,14 +81,14 @@ header nav li { /*li är de visuella knapparna // länkarna       nav li då end
 	border-radius: 5px;
 }
 
-header nav li:hover { /*Header-länkarna får en blå högersida som smyger fram över 0.2 sek. */
+header nav li:hover { /*Header-länkarna får en högersida som smyger fram över 0.2 sek. */
 	box-shadow: 3px 0;
 	transition-duration: 0.2s;
 }
 
 /*FOOTERN FÖR ALLA SIDOR   */
 footer {
-	grid-area: footer; /*Får sin plats i griden*/
+	grid-area: footer; /*Får sin plats i body-griden*/
 	box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px,
 		rgba(10, 37, 64, 0.35) 0 -2px 6px 0 inset; /*Skugga på footer, snyggt och stilrent. Går uppåt*/
 	color: black;
@@ -217,7 +220,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	padding-top: 10px; /*Toppen får vara närmare än resterande*/
 }
 
-.wide_section h2, .wide_section h1 { /*H2 i wide_section, 2em storlek, blir rubriken för hela sektionen*/
+.wide_section h2, .wide_section h1 { /*H2 & H1 i wide_section, 2em storlek, blir rubriken för hela sektionen*/
 	font-size: 2em;
 }
 
@@ -324,7 +327,6 @@ form input[type="checkbox"] { /*Radioknapparna får höjden (därav storleken) 2
 	height: 2rem;
 }
 
-
 form textarea { /*Textarea i inner_form, 30vh hög, ska vara högre än andra delar.*/
 	height: 30vh;
 }
@@ -395,30 +397,30 @@ iframe { /*Iframe (youtube) i argentina.html*/
 	height: 100%;
 }
 
-.mål { /*Tabellen över spelare & mål (spelare.html) */
+table { /*Tabellen över spelare & mål (spelare.html) */
 	width: 100%; /*Tar upp hela bredden av sektionen*/
 	border-collapse: collapse; /*Tar bort mellanrummet mellan cellerna i tabellen*/
 	border: 1px solid var(--primary-color); /*En blå border runt tabellen, snyggt och stilrent*/
 }
 
-.mål td, .mål th { /*Datacellerna och headcellerna i tabellen (spelare.html) */
+table td, table th { /*Datacellerna och headcellerna i tabellen (spelare.html) */
 	border: 1px solid var(--primary-color);
 	padding: 10px; /*Utrymme för text samt en border på 1px*/
 }
 
-.mål tr:nth-child(even) { /*Even & odd färg på table rows : zebrastriping*/
+table tr:nth-child(even) { /*Even & odd färg på table rows : zebrastriping*/
 	background-color: var(--secondary-color);
 }
 
-.mål tr:nth-child(odd) { /*Even & odd färg: zebrastriping*/
+table tr:nth-child(odd) { /*Even & odd färg: zebrastriping*/
 	background-color: var(--tertiary-color);
 }
 
-.mål tr:hover { /*När muspekaren hålls på, byter färg för läslighet*/
+table tr:hover { /*När muspekaren hålls på, byter färg för läslighet*/
 	background-color: var(--quaternary-color);
 }
 
-.mål thead th, .mål tfoot th, .mål tfoot td { /*Blå bakgrund på table head & table foot : ser snyggt ut. Matchar med vit färg för läslighet*/
+table thead th, table tfoot th, table tfoot td { /*Blå bakgrund på table head & table foot : ser snyggt ut. Matchar med vit färg för läslighet*/
 	background-color: var(--primary-color);
 	color: white;
 	border: 1px solid rgb(0, 0, 0);
@@ -493,11 +495,13 @@ header nav li a { /*Ändrar färg & tar bort underline för länkarna*/
 	color: var(--primary-color);
 }
 
-.tack_bild { /*Tummen-upp bilden får 25vw storlek, centrerad på skärmen, funkar för både mobil & dator*/
+.tack_bild {
+	/*Tummen-uppbilden får 25vw storlek,centrerad påskärmen,funkar för både mobil & dator*/
 	width: 30vw;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+	filter: grayscale(1) invert(0.1); /*Gråskala och inverterad färg på bilden, snyggare*/
 }
 
 @media (max-width: 1100px) { /*Media query för att anpassa till mindre/mellan skärmar, 1100px är en bra gräns för just denna sidan*/
