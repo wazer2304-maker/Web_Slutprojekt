@@ -15,7 +15,7 @@
 
 body { /*Grundreglerna för bodyn som varje sida har*/
 	width: 100%;
-	min-height: 100vh; /*Sidan tar som MINST upp hela skärmen. Den kan annars expandera till att ta upp mer*/
+	height: 100vh;
 	/* '*' Sätter en standardfont. "Backup": sans-serif.  */
 	font-family: "Titillium Web", sans-serif;
 	font-weight: 400;
@@ -26,13 +26,14 @@ body { /*Grundreglerna för bodyn som varje sida har*/
 	color: var(--primary-color); /*Färg på texten, primary-color är en blå färg. */
 	display: grid; /*Stor-griddet för varje sida*/
 	grid-template-columns: 1;
-	grid-template-rows: auto auto auto;
+	grid-template-areas: "header" "main" "footer"; /*Tre områden, en för header, en för main och en för footer*/
 	overflow-x: hidden; /* Gömmer horizontella scrollbaren. Sidan fungerar utan dess funktion */
 }
 
 
 /*Headern för alla sidor*/
 header {
+	grid-area: header; /*Får sin plats i griden*/
 	display: grid; /*Grid för header, strukturerar upp h1:an och de tre länkarna*/
 	background: var(--secondary-color); /*Bakgrundsfärg på header, nästan vit*/
 	box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em, rgba(90, 125, 188, 0.05) 0 0.25em 1em; /*Mycket liten skugga på header*/
@@ -40,10 +41,9 @@ header {
 }
 
 header > ul > li > a { /*H1 i header, färgen måste ändras i a då a är inuti h1. */
-	border-bottom: 1px solid var(--primary-color); /*Blå linje under h1:a, primary-color är en blå färg, snyggt.*/
 	width: fit-content; /*Tar så mycket plats som det behövs, inte mer. */
 	font-size: 3rem; /*Storlek på texten, 3rem är 3 gånger större än standardstorlek*/
-	line-height: 1em; /*Linjehöjd, centrerar h1an*/
+	line-height: 2em; /*Linjehöjd, centrerar h1an*/
 	padding: 2px; /*Lite padding för att inte texten ska vara för nära linjen*/
 	font-weight: bold; /*Tjock text, bold*/
 	text-align: right; /*Texten i h1:a är högerjusterad mot knapparna*/
@@ -51,7 +51,7 @@ header > ul > li > a { /*H1 i header, färgen måste ändras i a då a är inuti
 	color: var(--primary-color); /*Färg på texten, fixar från a's vanliga färg*/
 }
 
-header ul { /*För de två (2) Ul i header, gör så att det är två flexes som kollapsar*/
+header ul { /*För de två (2) Ul i header, skapar alltså två olika flexes som var för sig kollapsar*/
 	display: flex;
 	flex-wrap: wrap; /*Wrappar vid litet utrymme. Kan kollapsa till litet format.*/
 	list-style-type: none; /*Tar bort punkterna från ul:n i naven*/
@@ -65,7 +65,7 @@ header nav ul { /*De inre ul inuti naven inuti den större ul i header får mind
 	column-gap: 20px;
 }
 
-header nav li { /*li är de visuella knapparna // länkarna*/
+header nav li { /*li är de visuella knapparna // länkarna       nav li då endast ul listan i naven ska påverkas*/
 	width: 5em; 
 	height: 3em; /*Bredd & höjd*/
 	margin-bottom: 5px; /*Mellanrum mellan knapparna och bottnen, för snygghet*/
@@ -84,6 +84,7 @@ header nav li:hover { /*Header-länkarna får en blå högersida som smyger fram
 
 /*FOOTERN FÖR ALLA SIDOR   */
 footer {
+	grid-area: footer; /*Får sin plats i griden*/
 	box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px, 
 		rgba(10, 37, 64, 0.35) 0 -2px 6px 0 inset; /*Skugga på footer, snyggt och stilrent. Går uppåt*/
 	color: black;
@@ -91,18 +92,22 @@ footer {
 	grid-template-areas: ". copyright social ."; /*Fyra områden, en för texten, en för social-knapparna och sidoutrymmen*/
 	grid-template-columns: 40px auto auto 40px; /*40px på vardera sida, auto i mitten för att fylla utrymmet*/
 	width: 100vw; /*Tar upp hela bredden av sidan*/
+	height: 110%;
 	background: var(--secondary-color); /*Bakgrundsfärg på footer, nästan vit*/
 	padding: 2px;
+	margin-bottom: 0;
+	bottom: 0;
 }
 
-footer h3 { /*"FIFA 2024 - texten, 1.8em storlek i copyright-arean, BOLD (tjock text) och åt vänster*/
+footer span { /*"FIFA 2024 - texten, 1.8em storlek i copyright-arean, BOLD (tjock text) och åt vänster*/
 	grid-area: copyright; /*Får sin plats i footer */
 	font-size: 1.8em;
 	font-weight: bold;
+	padding: 15px;
 	text-align: left; /*Texten är åt vänster med 40px margin från griddet = Snyggt när det krymper*/
 }
 
-footer > .social { /*Ul i footer, för att få social-knapparna i en kollapserbar rad*/
+footer div { /*Ul i footer, för att få social-knapparna i en kollapserbar rad*/
 	grid-area: social; /*Får sin plats i footer */
 	justify-content: flex-end;
 	display: flex; /*Flexbox för att få knapparna i en rad*/
@@ -140,6 +145,7 @@ main { /*En main per sida, mellan footer och header*/
 	display: flex; /*Flexbox för att kunna kollapsa ihop sektionerna till en vertikal rad vid små skärmar*/
 	flex-wrap: wrap; /*Wrappar vid litet utrymme. Kan kollapsa till litet format.*/
 	justify-content: center; /*Centrerar sektionerna*/
+	grid-area: main; /*Får sin plats i griden*/
 }
 
 section {/*En sektion,"mini-behållare" i main */
@@ -151,7 +157,7 @@ section {/*En sektion,"mini-behållare" i main */
 	border-radius: 4px; /*Rundar av hörnen på sektionen, 4px på alla hörn*/
 }
 
-p:target::before, h2:target::before, dt:target::before { /*När en sida klickas igen, kommer en pil fram.  */
+p:target::before, h2:target::before, dt:target::before, h1:target::before { /*När en sida klickas igen, kommer en pil fram.  */
 	content: "► "; /*Pil-tecknet förtydligar att man är på den sidan man är på, om man skulle få för sig att tro något annat*/
 	color: var(--primary-color); /*En "pil" i primary color framför texten, scrollar även ner till stycket*/
 } /*p, h2, dt används i de olika sidorna för denna funktionen*/
@@ -164,7 +170,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	display: grid; /*Grid för att strukturera upp bilden och texten, inga areor benämns , mycket versatil*/
 }
 
-.top_img_split h2 { /*H2 i top_img_split, 2.5em storlek, rubriken för sektionen*/
+.top_img_split h2, .top_img_split h1 { /*H2 i top_img_split, 2.5em storlek, rubriken för sektionen*/
 	font-size: 2.5em;
 	margin: 25px; /*Mellanrum från texten till bilden*/
 	text-align: center; /*Centrerar texten horisontellt*/
@@ -201,7 +207,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 	grid-column: span 2; /*Tar upp två kolumner, alltså hela bredden på gridden i sektionen*/
 }
 
-.collapse_lander_title h2 { /*H2 i collapse_lander_title, 2.2em storlek, blir rubriken för hela sektionen*/
+.collapse_lander_title h2, .collapse_lander_title h1 { /*H2 i collapse_lander_title, 2.2em storlek, blir rubriken för hela sektionen*/
 	font-size: 2.2em;
 	margin: 20px; /*Mellanrum från samtliga delar*/
 	text-align: center; /*Centrerar texten horisontellt*/
@@ -209,12 +215,12 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 }
 
 .wide_section { /*Klass för sektioner, för t.e.x historia.html där endast en sektion används*/
-	width: 80%; /*Mycket större bredd. Förutsatt att det är enda sektionen*/
-	padding: 30px; /*Lite padding för att inte texten ska vara för nära kanten*/
+	width: 84.5%; /*Mycket större bredd. Förutsatt att det är enda sektionen*/
+	min-height: 0;
 	padding-top: 10px; /*Toppen får vara närmare än resterande*/
 }
 
-.wide_section h2 { /*H2 i wide_section, 2em storlek, blir rubriken för hela sektionen*/
+.wide_section h2, .wide_section h1 { /*H2 i wide_section, 2em storlek, blir rubriken för hela sektionen*/
 	font-size: 2em;
 }
 
@@ -251,7 +257,7 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
                        0 0);
 }
 
-.banner_section h2 { /*H2 i banner_section, 2em storlek, rubriken för första banner_section*/
+.banner_section h2, .banner_section h1 { /*H2 i banner_section, 2em storlek, rubriken för första banner_section*/
 	font-size: 2em;
 	margin: 5vmin; /*Mellanrum från texten till kanten, 5vmin är en bra storlek för detta, krymper automatiskt med skärmstorlek*/
 }
@@ -290,20 +296,17 @@ section p { /*Texten i sektionerna, 1.4em storlek, 1.4em är en bra storlek för
 }
 
 .form_section { /*Klass för den större containern (sektionen) till formuläret i form.html */
+	width: 50%;
 	border-left: 10px solid var(--primary-color); /*Tjock blå vänsterkantslinje för att det är väldigt snyggt*/
 	background: linear-gradient(rgb(255, 255, 255), rgb(228, 232, 233)); /*Bakgrundsfärg på sektionen, vit-grå gradient, fade:ar ut*/
 	border-radius: 10px 10px 100px 10px; /*Rundar av hörnen på sektionen, 10px på alla hörn, 100px på botten vänster där gradienten är som mest utblandad med background*/
-}
-
-.form_section h2 { /*H2 i form_section, rubriken för formuläret*/
-	text-align: center;
 }
 
 form input, form textarea { /*Input och textarea i inner_form, 1em storlek*/
 	font-size: 1em;
 	padding: 10px; /*Lite padding för att inte texten ska vara för nära kanten*/
 	margin: 10px;
-	width: 50%; /*Bredd på input och textarea, 60vw är en bra bredd för formulärsdelarna*/
+	width: 90%; /*Bredd på input och textarea, 60vw är en bra bredd för formulärsdelarna*/
 	min-width: 100px; /*Minsta bredd på input och textarea, 100px är en bra minsta bredd för formulärsdelarna (när skärmen blir mindre)*/
 	height: 6vh; /*Höjd på input och textarea*/
 	border: 1px double var(--tertiary-color);
@@ -332,7 +335,7 @@ form textarea { /*Textarea i inner_form, 30vh hög, ska vara högre än andra de
 form button { /*Knappen i inner_form, 1.3em storleks fyllig knapp med vit text, blå bakgrund, rundade hörn*/
 	font-size: 1.3em;
 	margin-top: 50px; /*Mellanrum från ovan till knappen*/
-	width: 40vw; /*Bredd på knappen, 40vw är en fin bredd för knappen*/
+	width: 70%; /*Bredd på knappen, 40vw är en fin bredd för knappen*/
 	margin-left: 10vw; /*Mellanrum från vänsterkanten till knappen*/
 	min-width: 100px; /*Minsta bredd på knappen, 100px är en bra minsta bredd för knappen (när skärmen blir mindre)*/
 	height: 10vh; /*Höjd på knappen*/
@@ -471,7 +474,8 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked {
-	/*Närradioknapparnaärklickadepå,blirdelitestörre*/-webkit-transform: scale(1.2);
+	/*När radioknapparna är klickade,blir de lite större (scale 1.2 pga :checked) */
+	-webkit-transform: scale(1.2);
 	-moz-transform: scale(1.2);
 	-ms-transform: scale(1.2);
 	-o-transform: scale(1.2);
@@ -484,13 +488,21 @@ legend { /*Formulärtexten "Vad är din anknytning till FIFA?", 1.6ch och "tjock
 	font-weight: bold;
 }
 
-audio { /*Audio tar upp sin bredd */
+audio { /*Audio tar upp sin allokerade bredd */
 	width: 100%;
 }
 
 header nav li a { /*Ändrar färg & tar bort underline för länkarna*/
 	text-decoration: none;
 	color: var(--primary-color);
+}
+
+.tack_bild { /*Tummen-upp bilden får 25vw storlek, centrerad på skärmen, funkar för både mobil & dator*/
+	width: 30vw;
+	
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
 @media (max-width: 1100px) { /*Media query för att anpassa till mindre/mellan skärmar, 1100px är en bra gräns för just denna sidan*/
